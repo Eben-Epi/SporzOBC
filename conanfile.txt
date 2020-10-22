@@ -1,0 +1,11 @@
+[requires]
+qt/5.15.1@bincrafters/stable
+
+[generators]
+cmake
+cmake_paths
+cmake_find_package
+qt
+
+[options]
+qt:opengl=es2
