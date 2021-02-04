@@ -1,0 +1,11 @@
+[requires]
+    qt/5.15.2@bincrafters/stable
+
+[generators]
+    cmake
+    cmake_paths
+    cmake_find_package
+    qt
+
+[options]
+    *:shared=True
