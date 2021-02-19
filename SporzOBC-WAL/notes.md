@@ -1,0 +1,12 @@
+-DCMAKE_BUILD_TYPE:String=Debug
+-DQT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}
+-DCMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}
+-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
+-DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
+-DANDROID_NATIVE_API_LEVEL:STRING=16
+-DANDROID_NDK:PATH=C:/Users/drago/AppData/Local/Android/Sdk/ndk/21.1.6352462
+-DCMAKE_TOOLCHAIN_FILE:PATH=C:/Users/drago/AppData/Local/Android/Sdk/ndk/21.1.6352462/build/cmake/android.toolchain.cmake
+-DANDROID_ABI:STRING=armeabi-v7a
+-DANDROID_SDK:PATH=C:/Users/drago/AppData/Local/Android/Sdk
+-DANDROID_STL:STRING=c++_shared
+-DCMAKE_FIND_ROOT_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}

@@ -1,0 +1,12 @@
+liste :
+
+xml dtd à parser = Serialized data objects ??
+
+
+
+Logique du jeu et tour = game logic
+DTD Parser XML = DataParser (XmlParser2?)
+Système de sauvegarde et CTRL-Z = GameHistory
+Coeur application = CoreApp
+Pages à menu = UiHandler
+Interface graphique = GraphicalHandler
