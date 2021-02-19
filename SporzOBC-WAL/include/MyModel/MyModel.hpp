@@ -1,6 +1,8 @@
 #ifndef SPORZOBC_WAL_MYMODEL_HPP
 #define SPORZOBC_WAL_MYMODEL_HPP
 
+#include <QTimer>
+#include <QTime>
 #include <QAbstractTableModel>
 
 class MyModel : public QAbstractTableModel {
@@ -11,6 +13,11 @@ public:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+private:
+    QTimer *timer;
+private slots:
+    void timerHit();
 };
 
 #endif //SPORZOBC_WAL_MYMODEL_HPP
