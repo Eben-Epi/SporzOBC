@@ -32,7 +32,7 @@ conan_basic_setup()
 
 find_package(Qt5 COMPONENTS Core Widgets Gui Xml REQUIRED)
 
-include_directories(client/include)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${CMAKE_INCLUDE_PATH})
 include_directories(${CONAN_INCLUDE_DIRS})
 
