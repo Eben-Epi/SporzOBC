@@ -30,6 +30,8 @@ file(GLOB_RECURSE SOURCES_CPP ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB_RECURSE SOURCES_HPP ${PROJECT_SOURCE_DIR}/include/*.hpp)
 file(GLOB_RECURSE SOURCES_H ${PROJECT_SOURCE_DIR}/include/*.h)
 
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
 if(ANDROID)
   add_library(SporzOBC-WAL SHARED ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H}
         )
