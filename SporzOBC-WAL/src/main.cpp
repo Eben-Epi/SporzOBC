@@ -1,11 +1,11 @@
 #include <QApplication>
-#include <CalculatorForm/CalculatorForm.hpp>
+#include <CalculatorForm/Calculator.hpp>
 
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    CalculatorForm ui;
+    Calculator ui;
 
     ui.show();
     return app.exec();
