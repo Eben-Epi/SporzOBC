@@ -1,14 +1,12 @@
-#include "./ui_calculatorform.h"
 #include <QApplication>
-#include <QWidget>
+#include <CalculatorForm/CalculatorForm.hpp>
+
 
 int main(int argc, char **argv)
 {
     QApplication app(argc, argv);
-    QWidget widget;
-    Ui::CalculatorForm ui;
-    ui.setupUi(&widget);
+    CalculatorForm ui;
 
-    widget.show();
+    ui.show();
     return app.exec();
 }
