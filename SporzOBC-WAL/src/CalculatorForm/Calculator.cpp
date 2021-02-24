@@ -6,7 +6,6 @@ Calculator::Calculator(QWidget *parent)
         : QWidget(parent), ui(new Ui::CalculatorForm)
 {
     ui->setupUi(this);
-    ui2.setupUi(this);
 }
 
 void Calculator::on_inputSpinBox1_valueChanged(int value) {

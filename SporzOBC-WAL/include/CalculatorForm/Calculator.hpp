@@ -1,7 +1,6 @@
 #ifndef SPORZOBC_WAL_CALCULATOR_HPP
 #define SPORZOBC_WAL_CALCULATOR_HPP
 #include <QWidget>
-#include "./ui_homepage.h"
 
 namespace Ui {
     class CalculatorForm;
@@ -21,7 +20,6 @@ private slots:
 
 private:
     Ui::CalculatorForm *ui;
-    Ui::Homepage ui2;
 };
 
 #endif //SPORZOBC_WAL_CALCULATOR_HPP
