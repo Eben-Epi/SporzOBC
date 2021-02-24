@@ -1,17 +1,12 @@
-#include "../include/homepage.h"
-
 #include <QApplication>
-#include <QTableView>
-#include <MyModel/MyModel.hpp>
+#include <CalculatorForm/Calculator.hpp>
+
 
 int main(int argc, char **argv)
 {
-    QApplication a(argc, argv);
-    QTableView tableView;
-    MyModel model;
-    tableView.setModel(&model);
-    tableView.show();
-//    Homepage w;
-//    w.show();
-    return a.exec();
+    QApplication app(argc, argv);
+    Calculator ui;
+
+    ui.show();
+    return app.exec();
 }
