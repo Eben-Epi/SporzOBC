@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(SporzOBC-WAL LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOUIC_SEARCH_PATHS resources)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
