@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(SporzOBC-WAL LANGUAGES CXX)
+project(SporzOBC-WAL)
 get_filename_component(DIR_ONE_ABOVE ../ ABSOLUTE)
-set(PROJECT_SOURCE_DIR ${DIR_ONE_ABOVE})
+set(PROJECT_SOURCE_DIR ${DIR_ONE_ABOVE}/code)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -42,5 +42,7 @@ file(GLOB_RECURSE SOURCES_CPP ${PROJECT_SOURCE_DIR}/src/*.cpp)
 file(GLOB_RECURSE SOURCES_HPP ${PROJECT_SOURCE_DIR}/include/*.hpp)
 file(GLOB_RECURSE SOURCES_H ${PROJECT_SOURCE_DIR}/include/*.h)
 
-add_executable(${CMAKE_PROJECT_NAME} ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H})
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE ${CONAN_LIBS} Qt5::Core Qt5::Gui)
+message(${SOURCES_CPP})
+
+add_executable(SporzOBC-WAL ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H})
+target_link_libraries(SporzOBC-WAL PRIVATE ${CONAN_LIBS} Qt5::Core Qt5::Gui)
