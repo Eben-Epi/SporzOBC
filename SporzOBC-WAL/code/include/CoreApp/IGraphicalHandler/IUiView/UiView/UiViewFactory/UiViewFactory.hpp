@@ -1,55 +1,47 @@
 /*!
 
 \file UiViewFactory.hpp
-\brief Factory pour rendre la création des IUiViews générique et rapide
+\brief Enter your brief here //TODO
 \author Eben
 \version 0.1
 
 */
-
-#include <memory>
-#include <map>
-#include <iostream>
-#include "CoreApp/IGraphicalHandler/IUiView/IUiView.hpp"
-
 #ifndef SPORZOBC_WAL_UIVIEWFACTORY_HPP
 #define SPORZOBC_WAL_UIVIEWFACTORY_HPP
 
-//! \interface UiViewFactory
-/*!
- * Crée les pages connues par la factory (sUiViews)
- * \sa sUiViews
- */
+#include <map>
+#include <memory>
+#include <string>
+#include "CoreApp/IGraphicalHandler/IUiView/IUiView.hpp"
+
+enum UiViews {
+    CALCULATOR
+};
+
 class UiViewFactory {
 public:
     using TCreateMethod = std::unique_ptr<IUiView>(*)();
-    TCreateMethod m_CreateFunc;
 
-public:
     UiViewFactory() = delete;
 
-    static bool Register(const std::string name, TCreateMethod createFunc)
-    {
-        if (auto it = sUiViews.find(name); it == sUiViews.end())
-        {
-            sUiViews[name] = createFunc;
-            std::cout << " registered\n";
-            return true;
-        }
-        return false;
-    }
+    static bool Register(UiViews name, TCreateMethod funcCreate);
 
-    static std::unique_ptr<IUiView> Create(const std::string& name)
-    {
-        if (auto it = sUiViews.find(name); it != sUiViews.end())
-            return it->second();
-
-        return nullptr;
-    }
+    static std::unique_ptr<IUiView> Create(UiViews name);
 
 private:
-    //! map des types de pages connus
-    static std::map<std::string, TCreateMethod> sUiViews;
+    static std::map<UiViews, TCreateMethod>& s_methods();
 };
+
+template <typename T>
+class RegisteredInFactory
+{
+protected:
+    RegisteredInFactory() { s_bRegistered; }
+    static bool s_bRegistered;
+};
+
+template <typename T>
+bool RegisteredInFactory<T>::s_bRegistered =
+        UiViewFactory::Register(T::GetFactoryName(), T::CreateMethod);
 
 #endif //SPORZOBC_WAL_UIVIEWFACTORY_HPP
