@@ -11,7 +11,9 @@
 #define SPORZOBC_WAL_GAMELOGICMANAGER_HPP
 
     //! GameLogicManager
-    /*!
+#include <vector>
+
+/*!
       Classe représentant l'orchestrateur d'une partie
 
       Elle agit pour faire dérouler une partie en même
@@ -27,6 +29,9 @@
         //! Destructeur
         /*! Destructeur de la classe GameLogicManager */
         ~GameLogicManager();
+
+    private:
+        std::vector<Player> _players;
     };
 
 
