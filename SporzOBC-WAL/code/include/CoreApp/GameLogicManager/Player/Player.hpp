@@ -10,18 +10,60 @@
 #define SPORZOBC_WAL_PLAYER_HPP
 
 #include <string>
-#include <CoreApp/GameLogicManager/Role/Role.hpp>
+
+class Player;
+
+#include "CoreApp/GameLogicManager/Role/Role.hpp"
 
 class Player {
-    Player() =  default;
+public:
+    explicit Player(std::string username = "PLAYER_NULL", size_t playerID = 0);
     ~Player() = default;
 
+    //! Changement du nom du joueur
+    void setUserName(std::string);
+
+    //! Récupérer le nom du joueur
+    const std::string& getUserName();
 private:
+    //! ID du joueur, généralement utilisé pour le cibler
+    size_t playerID;
+
+    //! nom public du joueur affiché lors de la partie
     std::string username;
-    PlayerState _state;
-    int _mutated_counter;
-    Role _job;
-    Genome _genome;
+
+    //! état de santé actuel du joueur.
+    /*!
+     * \sa PlayerState
+     */
+
+    PlayerState _state = ALIVE;
+    /*!
+     * Compteur d'ancienneté du joueur par rapport au nombre de jours qu'il passe en étant mutant.
+     * Déterminant pour l'élection d'un chef
+     */
+
+    int _illCounter = 0;
+    //! Profession ou rôle du joueur dans la partie.
+    /*!
+     * \sa Role
+     */
+    Role _job = JOBLESS;
+
+    //! Génome du joueur. Ne change pas au cours d'une partie.
+    /*!
+     * \sa Role
+     */
+    Genome _genome = STANDARD;
+
+    //! Action qu'a subit le joueur au cours d'une nuit
+    /*!
+     * \sa ActionType
+     */
+    std::vector<ActionType> _affected;
+
+    //! ID des joueurs qui ont été en contact avec ce joueur.
+    std::vector<size_t> _contacted;
 };
 
 #endif //SPORZOBC_WAL_PLAYER_HPP

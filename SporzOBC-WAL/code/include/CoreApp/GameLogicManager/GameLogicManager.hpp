@@ -10,9 +10,38 @@
 #ifndef SPORZOBC_WAL_GAMELOGICMANAGER_HPP
 #define SPORZOBC_WAL_GAMELOGICMANAGER_HPP
 
-    //! GameLogicManager
+#include <utility>
 #include <vector>
+#include "SporzException/SporzException.hpp"
+#include "Player/Player.hpp"
 
+#define MIN_PLAYER_SIZE (6)
+#define MAX_PLAYER_SIZE (12)
+
+enum GameState {
+    BOARDING,
+    DAY,
+    NIGHT,
+    RECAP
+};
+
+enum GameLogicManagerExceptionType {
+    RUNTIME_ERROR,
+    INCORRECT_NUMBER_OF_PLAYERS,
+    PLAYER_NAME_EMPTY,
+    PLAYER_ID_INVALID,
+    PLAYER_NAME_TOO_LONG
+};
+
+class GameLogicManagerException : public SporzException {
+public:
+    GameLogicManagerException(const std::string& msg, const std::string& funcName, GameLogicManagerExceptionType type = RUNTIME_ERROR)
+    : SporzException(msg, funcName, "GameLogicManagerException"), type(type) {}
+
+    GameLogicManagerExceptionType type;
+};
+
+//! GameLogicManager
 /*!
       Classe représentant l'orchestrateur d'une partie
 
@@ -22,16 +51,58 @@
     */
     class GameLogicManager {
     public:
-        //! Constructeur
-        /*! Constructeur de la classe GameLogicManager */
         GameLogicManager();
+        //! Création de la partie
+        /*!
+         * Instancie le GameLogicManager, généralement après qui l'UI a lancé le signal de création de partie.
+         * La partie se crée, le nombre de joueurs présent sont ajustés grâce à la fonction setPlayerCount() et la partie
+         * se lancera grâce à la fonction startGame()
+         * \sa startGame()
+         * \sa setPlayerCount()
+         */
+        void createGame();
 
-        //! Destructeur
-        /*! Destructeur de la classe GameLogicManager */
-        ~GameLogicManager();
+        //! Lancement de la partie
+        /*!
+         * Lance la partie, si elle a été configurée au préalable par la fonction startGame() ou plus tard //TODO loadGame
+         * \sa createGame()
+         */
+        void startGame();
+
+        //! Nombre de joueurs dans la partie
+        /*!
+         * \return le nombre de joueurs dans la partie
+         */
+        [[nodiscard]] const size_t& getPlayerCount() const;
+
+        //! Changer le nombre de joueurs dans la partie
+        /*!
+         * Crée de nouveaux joueurs en leur assignant un ID et un nom (placeholder). Il faut remplacer ce nom par la suite
+         * avec la fonction setPlayerName();
+         * \sa setPlayerName();
+         */
+        void setPlayerCount(size_t);
+
+        //! Changer le nom d'un joueur
+        /*!
+         * \param id L'ID valide de la cible
+         * \param newUserName Nom du joueur, compris entre 1 et 12 caractères
+         */
+        void setPlayerName(size_t id, std::string newUserName);
+
+        //! Retourne le nom d'un joueur
+        /*!
+         * \param id L'ID valide de la cible
+         * \return le nom du joueur cible
+         */
+        const std::string &getPlayerName(size_t id);
 
     private:
+        void resizePlayerVector(size_t size);
+
         std::vector<Player> _players;
+        size_t playerCount;
+        GameState gameState = BOARDING;
     };
 
 

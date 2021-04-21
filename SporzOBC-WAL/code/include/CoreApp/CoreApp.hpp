@@ -23,16 +23,19 @@
     */
     class CoreApp {
     public:
-        //! Constructeur
-        /*! Constructeur de la classe CoreApp */
         CoreApp();
 
-        //! Destructeur
-        /*! Destructeur de la classe CoreApp */
         ~CoreApp();
 
+        //! Afin d'utiliser le gameLogicManager, on récupère une instance de manière sécurisée
+        std::unique_ptr<GameLogicManager> const &getGameLogicManagerInstance();
+
+        //! Initialization du gameLogicManager
+        void startNewGame();
+
     private:
-        GameLogicManager _gameLogicManager;
+        //! \sa GameLogicManager
+        std::unique_ptr<GameLogicManager> _gameLogicManager;
 //        _graphicalHandler;
     };
 

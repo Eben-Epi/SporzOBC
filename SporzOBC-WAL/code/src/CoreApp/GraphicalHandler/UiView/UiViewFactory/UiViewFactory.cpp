@@ -20,7 +20,6 @@ bool UiViewFactory::Register(UiViews name,
 {
     if (auto it = s_methods().find(name); it == s_methods().end())
     {
-        std::cout << "AHAHA" << name << std::endl;
         s_methods()[name] = funcCreate;
         return true;
     }
