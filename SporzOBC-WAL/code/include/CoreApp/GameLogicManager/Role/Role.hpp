@@ -30,7 +30,7 @@ enum PlayerState {
     ILL, /*!< A été muté */
     STUNNED, /*!< A été paralysé */
     ALIVE, /*!<  Est un humain sain */
-    DEAD /*!< Est malheureusement, mort */
+    DEAD /*!< Est, malheureusement, mort */
 };
 
 //! Types de génomes existants

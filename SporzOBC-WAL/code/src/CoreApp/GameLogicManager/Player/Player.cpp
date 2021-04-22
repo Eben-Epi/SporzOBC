@@ -22,3 +22,19 @@ void Player::setUserName(std::string newUserName) {
 const std::string &Player::getUserName() {
     return this->username;
 }
+
+void Player::setRole(Role role) {
+    this->_job = role;
+}
+
+const Role &Player::getRole() const {
+    return this->_job;
+}
+
+void Player::setGenome(Genome genome) {
+    this->_genome = genome;
+}
+
+const Genome &Player::getGenome() const {
+    return this->_genome;
+}

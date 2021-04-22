@@ -19,7 +19,11 @@ int main(int argc, char **argv)
         std::cout << GLM->getPlayerName(6) << std::endl;
         std::cout << GLM->getPlayerName(7) << std::endl;
         GLM->setPlayerCount(6);
-        std::cout << GLM->getPlayerName(7) << std::endl;
+        std::cout << GLM->getPlayerName(6) << std::endl;
+        GLM->setPlayerGenome(6, IMMUNE);
+        std::cout << GLM->getPlayerGenome(6) << std::endl;
+        GLM->setPlayerRole(5, DOCTOR);
+        std::cout << GLM->getPlayerRole(5) << std::endl;
         CalculatorPage->showUi();
         return app.exec();
     } catch (SporzException& e) {

@@ -25,6 +25,12 @@ public:
 
     //! Récupérer le nom du joueur
     const std::string& getUserName();
+
+    void setRole(Role);
+    [[nodiscard]] const Role& getRole() const;
+
+    void setGenome(Genome);
+    [[nodiscard]] const Genome& getGenome() const;
 private:
     //! ID du joueur, généralement utilisé pour le cibler
     size_t playerID;

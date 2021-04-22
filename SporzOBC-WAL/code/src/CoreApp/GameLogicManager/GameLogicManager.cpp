@@ -49,14 +49,34 @@ void GameLogicManager::setPlayerName(size_t id, std::string newUserName) {
         throw GameLogicManagerException("id of player is invalid", "setPlayerName", PLAYER_ID_INVALID);
 }
 
-const std::string &GameLogicManager::getPlayerName(size_t id) {
-    if (this->playerCount >= id)
-        return this->_players[id - 1].getUserName();
-    else
-        throw GameLogicManagerException("id of player is invalid", "setPlayerName", PLAYER_ID_INVALID);
-}
-
 void GameLogicManager::startGame() {
     // TODO initialize _turnManager
+}
+
+const std::string &GameLogicManager::getPlayerName(size_t id) {
+    return this->getPlayerInstance(id, "getPlayerName").getUserName();
+}
+
+void GameLogicManager::setPlayerRole(size_t id, Role role) {
+    this->getPlayerInstance(id, "setPlayerRole").setRole(role);
+}
+
+const Role &GameLogicManager::getPlayerRole(size_t id) {
+    return this->getPlayerInstance(id, "getPlayerRole").getRole();
+}
+
+void GameLogicManager::setPlayerGenome(size_t id, Genome genome) {
+    this->getPlayerInstance(id, "setPlayerGenome").setGenome(genome);
+}
+
+const Genome &GameLogicManager::getPlayerGenome(size_t id) {
+    return this->getPlayerInstance(id, "getPlayerGenome").getGenome();
+}
+
+Player &GameLogicManager::getPlayerInstance(size_t id, const std::string& funcName) {
+    if (this->playerCount >= id)
+        return this->_players[id - 1];
+    else
+        throw GameLogicManagerException("id of player is invalid", funcName, PLAYER_ID_INVALID);
 }
 

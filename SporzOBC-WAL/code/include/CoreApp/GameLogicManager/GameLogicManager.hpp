@@ -97,8 +97,40 @@ public:
          */
         const std::string &getPlayerName(size_t id);
 
+        //! Changer le role d'un joueur
+        /*!
+         * \param id L'ID valide de la cible
+         * \param newRole Nouveau rôle à assigner
+         * \sa Role
+         */
+        void setPlayerRole(size_t id, Role);
+
+        //! Retourne le role d'un joueur
+        /*!
+         * \param id L'ID valide de la cible
+         * \return le role du joueur cible
+         * \sa Role
+         */
+        [[nodiscard]] const Role& getPlayerRole(size_t id);
+
+        //! Changer le génome d'un joueur
+        /*!
+         * \param id L'ID valide de la cible
+         * \param newGenome Nouveau génome à assigner
+         * \sa Genome
+         */
+        void setPlayerGenome(size_t id, Genome);
+
+        //! Retourne le génome d'un joueur
+        /*!
+         * \param id L'ID valide de la cible
+         * \return le génome du joueur cible
+         * \sa Genome
+         */
+        const Genome& getPlayerGenome(size_t id);
     private:
         void resizePlayerVector(size_t size);
+        Player& getPlayerInstance(size_t id, const std::string& funcName);
 
         std::vector<Player> _players;
         size_t playerCount;
