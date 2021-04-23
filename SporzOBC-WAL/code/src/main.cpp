@@ -24,6 +24,27 @@ int main(int argc, char **argv)
         std::cout << GLM->getPlayerGenome(6) << std::endl;
         GLM->setPlayerRole(5, DOCTOR);
         std::cout << GLM->getPlayerRole(5) << std::endl;
+
+        std::cout << "wouaousoaus" << std::endl;
+
+        std::cout << GLM->getPlayerRole(1) << std::endl;
+        std::cout << GLM->getPlayerRole(2) << std::endl;
+        std::cout << GLM->getPlayerRole(3) << std::endl;
+        std::cout << GLM->getPlayerRole(4) << std::endl;
+        std::cout << GLM->getPlayerRole(5) << std::endl;
+        std::cout << GLM->getPlayerRole(6) << std::endl;
+
+        GLM->randomizeRoles();
+        GLM->randomizeGenomes();
+//        GLM->startGame();
+
+        std::cout << GLM->getPlayerRole(1) << std::endl;
+        std::cout << GLM->getPlayerRole(2) << std::endl;
+        std::cout << GLM->getPlayerRole(3) << std::endl;
+        std::cout << GLM->getPlayerRole(4) << std::endl;
+        std::cout << GLM->getPlayerRole(5) << std::endl;
+        std::cout << GLM->getPlayerRole(6) << std::endl;
+
         CalculatorPage->showUi();
         return app.exec();
     } catch (SporzException& e) {

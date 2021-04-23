@@ -8,6 +8,9 @@
 */
 
 #include <utility>
+#include <algorithm>
+#include <random>
+#include <chrono>
 #include "CoreApp/GameLogicManager/GameLogicManager.hpp"
 
 GameLogicManager::GameLogicManager() : playerCount(MIN_PLAYER_SIZE) {
@@ -74,9 +77,49 @@ const Genome &GameLogicManager::getPlayerGenome(size_t id) {
 }
 
 Player &GameLogicManager::getPlayerInstance(size_t id, const std::string& funcName) {
-    if (this->playerCount >= id)
-        return this->_players[id - 1];
-    else
-        throw GameLogicManagerException("id of player is invalid", funcName, PLAYER_ID_INVALID);
+    if (this->playerCount >= id) {
+        for (Player& player: this->_players) {
+            if (player.getID() == id)
+                return player;
+        }
+    }
+    throw GameLogicManagerException("id of player is invalid", funcName, PLAYER_ID_INVALID);
 }
 
+void GameLogicManager::randomizeRoles() {
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+
+    std::shuffle(this->_players.begin(), this->_players.end(), std::default_random_engine(seed));
+    for (Player &player : this->_players)
+        player.setGenome(STANDARD);
+    this->_players[0].setRole(MUTANT);
+    this->_players[0].setGenome(HOST);
+    this->_players[1].setRole(DOCTOR);
+    this->_players[2].setRole(DOCTOR);
+    this->_players[3].setRole(COMPUTER_SCIENTIST);
+    this->_players[4].setRole(GENETICIST);
+    this->_players[5].setRole(PSYCHOLOGIST);
+    if (this->playerCount > 6)
+        this->_players[6].setRole(HACKER);
+    if (this->playerCount > 7)
+        this->_players[7].setRole(SPY);
+    if (this->playerCount > 8)
+        this->_players[8].setRole(NOVICE_HACKER);
+    if (this->playerCount > 9)
+        this->_players[9].setRole(PAINTER);
+}
+
+void GameLogicManager::randomizeGenomes() {
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::shuffle(this->_players.begin(), this->_players.end(), std::default_random_engine(seed));
+    bool immuneSet = false;
+
+    for (Player& player : this->_players) {
+        if (player.getGenome() == STANDARD) {
+            player.setGenome(immuneSet ? HOST : IMMUNE);
+            if (immuneSet)
+                break;
+            immuneSet = true;
+        }
+    }
+}

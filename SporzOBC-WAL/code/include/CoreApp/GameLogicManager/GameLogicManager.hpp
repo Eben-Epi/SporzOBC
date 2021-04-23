@@ -16,7 +16,7 @@
 #include "Player/Player.hpp"
 
 #define MIN_PLAYER_SIZE (6)
-#define MAX_PLAYER_SIZE (12)
+#define MAX_PLAYER_SIZE (10)
 
 enum GameState {
     BOARDING,
@@ -128,7 +128,18 @@ public:
          * \sa Genome
          */
         const Genome& getPlayerGenome(size_t id);
+
+        //! Affectation des rôles des joueurs, en se basant sur une seed aléatoire, conformément à la réparition des rôles
+        void randomizeRoles();
+
+
+        //! Affectation aléatoire des génomes
+        void randomizeGenomes();
+
     private:
+        void resetGenomes();
+        void resetRoles();
+        void setHostMutant();
         void resizePlayerVector(size_t size);
         Player& getPlayerInstance(size_t id, const std::string& funcName);
 

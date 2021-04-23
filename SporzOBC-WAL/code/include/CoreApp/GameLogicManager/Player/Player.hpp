@@ -31,6 +31,8 @@ public:
 
     void setGenome(Genome);
     [[nodiscard]] const Genome& getGenome() const;
+
+    [[nodiscard]] const size_t& getID() const;
 private:
     //! ID du joueur, généralement utilisé pour le cibler
     size_t playerID;
@@ -44,12 +46,13 @@ private:
      */
 
     PlayerState _state = ALIVE;
+
     /*!
      * Compteur d'ancienneté du joueur par rapport au nombre de jours qu'il passe en étant mutant.
-     * Déterminant pour l'élection d'un chef
+     * Déterminant pour la désignation d'un chef des mutants
      */
-
     int _illCounter = 0;
+
     //! Profession ou rôle du joueur dans la partie.
     /*!
      * \sa Role

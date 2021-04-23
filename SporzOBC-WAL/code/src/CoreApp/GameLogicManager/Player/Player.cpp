@@ -38,3 +38,7 @@ void Player::setGenome(Genome genome) {
 const Genome &Player::getGenome() const {
     return this->_genome;
 }
+
+const size_t &Player::getID() const {
+    return this->playerID;
+}
