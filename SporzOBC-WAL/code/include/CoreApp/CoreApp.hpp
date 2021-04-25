@@ -33,6 +33,7 @@
         //! Initialization du gameLogicManager
         void startNewGame();
 
+        void play();
     private:
         //! \sa GameLogicManager
         std::unique_ptr<GameLogicManager> _gameLogicManager;

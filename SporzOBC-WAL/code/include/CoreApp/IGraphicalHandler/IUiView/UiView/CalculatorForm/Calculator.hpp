@@ -8,7 +8,7 @@ namespace Ui {
     class CalculatorForm;
 }
 
-class Calculator : public QWidget, public IUiView, public RegisteredInFactory<Calculator>
+class Calculator : public QWidget, public IUiGameView, public RegisteredInFactory<Calculator>
 {
     Q_OBJECT
 

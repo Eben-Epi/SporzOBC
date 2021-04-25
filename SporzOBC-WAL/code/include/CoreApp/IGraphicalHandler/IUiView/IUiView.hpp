@@ -10,6 +10,8 @@
 #ifndef SPORZOBC_WAL_IUIVIEW_HPP
 #define SPORZOBC_WAL_IUIVIEW_HPP
 
+#include "CoreApp/GameLogicManager/GameLogicManager.hpp"
+
 //! \interface IUiView
 class IUiView {
 public:
@@ -19,4 +21,12 @@ public:
 
     virtual void showUi() = 0;
 };
+
+class IUiGameView : public IUiView {
+public:
+    void setGLM(const std::unique_ptr<GameLogicManager>& glm);
+protected:
+    GameLogicManager *_glm;
+};
+
 #endif //SPORZOBC_WAL_IUIVIEW_HPP

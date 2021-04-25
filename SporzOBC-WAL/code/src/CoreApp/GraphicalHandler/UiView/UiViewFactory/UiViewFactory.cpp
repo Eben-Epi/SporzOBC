@@ -15,8 +15,7 @@ std::map<UiViews, UiViewFactory::TCreateMethod>& UiViewFactory::s_methods() {
     return my_static_obj_;
 };
 
-bool UiViewFactory::Register(UiViews name,
-                                        TCreateMethod funcCreate)
+bool UiViewFactory::Register(UiViews name, TCreateMethod funcCreate)
 {
     if (auto it = s_methods().find(name); it == s_methods().end())
     {
@@ -30,6 +29,16 @@ std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name)
 {
     if (auto it = s_methods().find(name); it != s_methods().end())
         return it->second();
+    return nullptr;
+}
 
+std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name, const std::unique_ptr<GameLogicManager>& gameLogicManager) {
+    if (auto it = s_methods().find(name); it != s_methods().end()) {
+        auto ptr = it->second();
+        if (auto ptr_tmp = dynamic_cast<IUiGameView*>(ptr.get()); ptr_tmp != nullptr) {
+            ptr_tmp->setGLM(gameLogicManager);
+        }
+        return ptr;
+    }
     return nullptr;
 }

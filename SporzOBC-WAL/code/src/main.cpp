@@ -9,9 +9,9 @@ int main(int argc, char **argv)
         QApplication app(argc, argv);
         CoreApp appSporz;
         appSporz.startNewGame();
-        auto GLM = appSporz.getGameLogicManagerInstance().get();
+        auto &GLM = appSporz.getGameLogicManagerInstance();
         std::cout << GLM->getPlayerCount() << std::endl;
-        auto CalculatorPage = UiViewFactory::Create(CALCULATOR);
+        auto CalculatorPage = UiViewFactory::Create(CALCULATOR, appSporz.getGameLogicManagerInstance());
 
         GLM->setPlayerCount(7);
         std::cout << GLM->getPlayerCount() << std::endl;

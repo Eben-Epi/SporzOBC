@@ -13,6 +13,7 @@
 #include <memory>
 #include <string>
 #include "CoreApp/IGraphicalHandler/IUiView/IUiView.hpp"
+#include "CoreApp/GameLogicManager/GameLogicManager.hpp"
 
 enum UiViews {
     CALCULATOR
@@ -27,6 +28,7 @@ public:
     static bool Register(UiViews name, TCreateMethod funcCreate);
 
     static std::unique_ptr<IUiView> Create(UiViews name);
+    static std::unique_ptr<IUiView> Create(UiViews name, const std::unique_ptr<GameLogicManager>& glm);
 
 private:
     static std::map<UiViews, TCreateMethod>& s_methods();

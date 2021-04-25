@@ -27,3 +27,6 @@ std::unique_ptr<GameLogicManager> const &CoreApp::getGameLogicManagerInstance() 
 void CoreApp::startNewGame() {
     this->_gameLogicManager = std::make_unique<GameLogicManager>();
 }
+
+void CoreApp::play() {
+}
