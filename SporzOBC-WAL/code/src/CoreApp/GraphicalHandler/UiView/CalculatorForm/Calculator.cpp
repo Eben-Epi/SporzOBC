@@ -1,6 +1,7 @@
 #include <iostream>
 #include "./ui_calculatorform.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/CalculatorForm/Calculator.hpp"
+#include "CoreApp/IGraphicalHandler/Widgets/MyModel/MyModel.hpp"
 
 Calculator::Calculator(QWidget *parent)
         : QWidget(parent), ui(new Ui::CalculatorForm), RegisteredInFactory<Calculator>()
@@ -18,7 +19,7 @@ void Calculator::on_inputSpinBox2_valueChanged(int value) {
 }
 
 void Calculator::showUi() {
-    qDebug("debuggies");
+    static_cast<MyModel*>(ui->tableView->model())->setGLM(this->accessGLM());
     this->show();
 }
 
@@ -32,4 +33,8 @@ std::unique_ptr<IUiView> Calculator::CreateMethod() {
 
 UiViews Calculator::GetFactoryName() {
     return CALCULATOR;
+}
+
+void Calculator::hideUi() {
+    this->hide();
 }

@@ -16,6 +16,7 @@
 #include "CoreApp/GameLogicManager/GameLogicManager.hpp"
 
 enum UiViews {
+    NO_VIEW,
     CALCULATOR
 };
 

@@ -3,11 +3,12 @@
 
 #include <QString>
 #include <QAbstractTableModel>
+#include "CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiModel.hpp"
 
 const int COLS= 3;
 const int ROWS= 2;
 
-class MyModel : public QAbstractTableModel {
+class MyModel : public QAbstractTableModel, public GameUiModel {
     Q_OBJECT
 public:
     MyModel(QObject *Parent = nullptr);

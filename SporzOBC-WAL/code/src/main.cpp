@@ -1,51 +1,15 @@
 #include <QApplication>
 #include <iostream>
 #include "CoreApp/CoreApp.hpp"
-#include "CoreApp/IGraphicalHandler/IUiView/UiView/UiViewFactory/UiViewFactory.hpp"
 
 int main(int argc, char **argv)
 {
     try {
         QApplication app(argc, argv);
         CoreApp appSporz;
-        appSporz.startNewGame();
-        auto &GLM = appSporz.getGameLogicManagerInstance();
-        std::cout << GLM->getPlayerCount() << std::endl;
-        auto CalculatorPage = UiViewFactory::Create(CALCULATOR, appSporz.getGameLogicManagerInstance());
 
-        GLM->setPlayerCount(7);
-        std::cout << GLM->getPlayerCount() << std::endl;
-        GLM->setPlayerName(6, "Tom");
-        std::cout << GLM->getPlayerName(6) << std::endl;
-        std::cout << GLM->getPlayerName(7) << std::endl;
-        GLM->setPlayerCount(6);
-        std::cout << GLM->getPlayerName(6) << std::endl;
-        GLM->setPlayerGenome(6, IMMUNE);
-        std::cout << GLM->getPlayerGenome(6) << std::endl;
-        GLM->setPlayerRole(5, DOCTOR);
-        std::cout << GLM->getPlayerRole(5) << std::endl;
-
-        std::cout << "wouaousoaus" << std::endl;
-
-        std::cout << GLM->getPlayerRole(1) << std::endl;
-        std::cout << GLM->getPlayerRole(2) << std::endl;
-        std::cout << GLM->getPlayerRole(3) << std::endl;
-        std::cout << GLM->getPlayerRole(4) << std::endl;
-        std::cout << GLM->getPlayerRole(5) << std::endl;
-        std::cout << GLM->getPlayerRole(6) << std::endl;
-
-        GLM->randomizeRoles();
-        GLM->randomizeGenomes();
-//        GLM->startGame();
-
-        std::cout << GLM->getPlayerRole(1) << std::endl;
-        std::cout << GLM->getPlayerRole(2) << std::endl;
-        std::cout << GLM->getPlayerRole(3) << std::endl;
-        std::cout << GLM->getPlayerRole(4) << std::endl;
-        std::cout << GLM->getPlayerRole(5) << std::endl;
-        std::cout << GLM->getPlayerRole(6) << std::endl;
-
-        CalculatorPage->showUi();
+        appSporz.initGraphicalHandler();
+        appSporz.play();
         return app.exec();
     } catch (SporzException& e) {
         std::cout << e.what();

@@ -13,7 +13,7 @@
 
 class Player;
 
-#include "CoreApp/GameLogicManager/Role/Role.hpp"
+#include "Role.hpp"
 
 class Player {
 public:

@@ -2,7 +2,7 @@
 #define SPORZOBC_WAL_MYTABLEWIDGET_HPP
 
 #include <QTableView>
-#include <MyModel/MyModel.hpp>
+#include <CoreApp/IGraphicalHandler/Widgets/MyModel/MyModel.hpp>
 
 class MyTableWidget : public QTableView {
     Q_OBJECT

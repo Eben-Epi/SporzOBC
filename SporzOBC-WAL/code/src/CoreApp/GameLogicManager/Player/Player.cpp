@@ -7,7 +7,7 @@
 
 */
 
-#include "CoreApp/GameLogicManager/Player/Player.hpp"
+#include "CoreApp/GameLogicManager/Player.hpp"
 
 #include <utility>
 

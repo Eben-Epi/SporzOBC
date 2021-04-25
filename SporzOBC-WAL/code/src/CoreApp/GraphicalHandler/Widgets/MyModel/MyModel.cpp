@@ -1,4 +1,4 @@
-#include "MyModel/MyModel.hpp"
+#include <CoreApp/IGraphicalHandler/Widgets/MyModel/MyModel.hpp>
 
 MyModel::MyModel(QObject *parent)
         : QAbstractTableModel(parent)
@@ -29,7 +29,7 @@ bool MyModel::setData(const QModelIndex &index, const QVariant &value, int role)
         if (!checkIndex(index))
             return false;
         //save value from editor to member m_gridData
-        m_gridData[index.row()][index.column()] = value.toString();
+        m_gridData[index.row()][index.column()] = value.toString() + this->accessGLM().getPlayerName(1).c_str();
         //for presentation purposes only: build and emit a joined string
         QString result;
         for (int row = 0; row < ROWS; row++) {

@@ -8,15 +8,16 @@ namespace Ui {
     class CalculatorForm;
 }
 
-class Calculator : public QWidget, public IUiGameView, public RegisteredInFactory<Calculator>
+class Calculator final : public QWidget, public UiGameView, public RegisteredInFactory<Calculator>
 {
     Q_OBJECT
 
 public:
     Calculator(QWidget *parent = nullptr);
-    virtual ~Calculator();
+    ~Calculator();
 
-    virtual void showUi() override;
+    void showUi() final;
+    void hideUi() final;
 
     static std::unique_ptr<IUiView> CreateMethod();
     static UiViews GetFactoryName();

@@ -11,7 +11,7 @@
 
 #include <string>
 #include <vector>
-#include "CoreApp/GameLogicManager/Player/Player.hpp"
+#include "CoreApp/GameLogicManager/Player.hpp"
 
 //! Types d'actions possibles subies par les joueurs
 enum ActionType {

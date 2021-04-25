@@ -21,7 +21,7 @@ public:
         return _exceptionMessage.c_str();
     }
     SporzException(const std::string& msg, const std::string&  funcName, const std::string& exceptionType = "SporzException")
-    : std::exception(msg.c_str()), _exceptionMessage(exceptionType + " in function " + funcName + "(): " + msg) {}
+    : std::exception(), _exceptionMessage(exceptionType + " in function " + funcName + "(): " + msg) {}
 protected:
     std::string _exceptionMessage;
 };

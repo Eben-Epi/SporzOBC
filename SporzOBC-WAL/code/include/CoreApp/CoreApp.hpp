@@ -10,7 +10,14 @@
 #ifndef SPORZOBC_WAL_COREAPP_HPP
 #define SPORZOBC_WAL_COREAPP_HPP
 
+enum AppState {
+    MAIN_MENU,
+    IN_GAME,
+};
 
+class CoreApp;
+
+#include "CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp"
 #include "GameLogicManager/GameLogicManager.hpp"
 
     //! CoreApp
@@ -31,13 +38,14 @@
         std::unique_ptr<GameLogicManager> const &getGameLogicManagerInstance();
 
         //! Initialization du gameLogicManager
-        void startNewGame();
+        void initGameLogicManager();
 
+        void initGraphicalHandler();
         void play();
     private:
         //! \sa GameLogicManager
         std::unique_ptr<GameLogicManager> _gameLogicManager;
-//        _graphicalHandler;
+        std::unique_ptr<IGraphicalHandler> _graphicalHandler;
     };
 
 

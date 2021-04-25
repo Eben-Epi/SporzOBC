@@ -1,20 +1,21 @@
 /*!
 
-\file IUiGameView.cpp
+\file GameUiModel.cpp
 \brief Enter your brief here //TODO
 \author Eben
 \version 0.1
 
 */
 
-#include "CoreApp/IGraphicalHandler/IUiView/IUiView.hpp"
+#include "CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiModel.hpp"
 
-void UiGameView::setGLM(const std::unique_ptr<GameLogicManager>& glm) {
-    this->_glm = glm.get();
+void GameUiModel::setGLM(GameLogicManager &glm) {
+    this->_glm = &glm;
 }
 
-GameLogicManager &UiGameView::accessGLM() {
+GameLogicManager &GameUiModel::accessGLM() {
     if(this->_glm != nullptr)
         return *this->_glm;
     throw SporzException(" Either GameLogicManager is not initialized or this GameUiView has not been created by the right factory Create()", "accessGLM");
+
 }

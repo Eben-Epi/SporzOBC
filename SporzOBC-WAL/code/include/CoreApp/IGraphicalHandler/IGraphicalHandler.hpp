@@ -12,6 +12,7 @@
 #define SPORZOBC_WAL_IGRAPHICALHANDLER_HPP
 
 #include <memory>
+#include "CoreApp/IGraphicalHandler/IUiView/UiView/UiViewFactory/UiViewFactory.hpp"
 
 //! \interface IGraphicalHandler
 /*!
@@ -35,8 +36,12 @@
          *  \param page L'id d'une page actuellement chargée dans
          *  le GraphicalHandler. Pour charger une page en cache
          *  dans celui-ci, se référer à la fonction loadUiView()
-         *  \sa IGraphicalHandler::loadUiView() */
-        virtual void changeUiView(size_t page) = 0;
+         *  \param UiViews page
+         *  \sa changeUiView()
+         *  \sa IGraphicalHandler::loadUiView()
+         *  \sa UiViews
+         *  */
+        virtual void changeUiView(UiViews page) = 0;
 
         //! Chargement de page
         /*! Charge une nouvelle page grâce à la factory \sa UiViewFactory
@@ -44,8 +49,13 @@
          *
          *  \param page L'id d'une page valide dans la factory UiViewFactory.
          *  Pour utiliser une page après sa création,
-         *  se référer à la fonction \sa IGraphicalHandler::loadUiView() */
-        virtual void loadUiView(size_t page) = 0;
+         *  se référer à la fonction \sa IGraphicalHandler::changeUiView()
+         *  \param UiViews page
+         *  \sa changeUiView()
+         *  \sa UiViews
+         *  */
+        virtual void loadUiView(UiViews page) = 0;
+        virtual void loadUiGameView(UiViews page) = 0;
     };
 
 #endif //SPORZOBC_WAL_IGRAPHICALHANDLER_HPP

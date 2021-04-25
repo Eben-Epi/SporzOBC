@@ -35,7 +35,7 @@ std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name)
 std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name, const std::unique_ptr<GameLogicManager>& gameLogicManager) {
     if (auto it = s_methods().find(name); it != s_methods().end()) {
         auto ptr = it->second();
-        if (auto ptr_tmp = dynamic_cast<IUiGameView*>(ptr.get()); ptr_tmp != nullptr) {
+        if (auto ptr_tmp = dynamic_cast<UiGameView*>(ptr.get()); ptr_tmp != nullptr) {
             ptr_tmp->setGLM(gameLogicManager);
         }
         return ptr;

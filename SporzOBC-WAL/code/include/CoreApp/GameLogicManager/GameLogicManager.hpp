@@ -13,7 +13,7 @@
 #include <utility>
 #include <vector>
 #include "SporzException/SporzException.hpp"
-#include "Player/Player.hpp"
+#include "Player.hpp"
 
 #define MIN_PLAYER_SIZE (6)
 #define MAX_PLAYER_SIZE (10)
