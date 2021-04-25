@@ -11,8 +11,11 @@
 #ifndef SPORZOBC_WAL_IGRAPHICALHANDLER_HPP
 #define SPORZOBC_WAL_IGRAPHICALHANDLER_HPP
 
+class IGraphicalHandler;
+
 #include <memory>
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/UiViewFactory/UiViewFactory.hpp"
+#include "CoreApp/IGraphicalHandler/IUiView/UiView/UiViewFactory/UiViews.hpp"
 
 //! \interface IGraphicalHandler
 /*!

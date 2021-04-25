@@ -12,13 +12,12 @@
 #include <map>
 #include <memory>
 #include <string>
+
+class UiViewFactory;
+
 #include "CoreApp/IGraphicalHandler/IUiView/IUiView.hpp"
 #include "CoreApp/GameLogicManager/GameLogicManager.hpp"
-
-enum UiViews {
-    NO_VIEW,
-    CALCULATOR
-};
+#include "CoreApp/IGraphicalHandler/IUiView/UiView/UiViewFactory/UiViews.hpp"
 
 class UiViewFactory {
 public:
@@ -28,8 +27,8 @@ public:
 
     static bool Register(UiViews name, TCreateMethod funcCreate);
 
-    static std::unique_ptr<IUiView> Create(UiViews name);
-    static std::unique_ptr<IUiView> Create(UiViews name, const std::unique_ptr<GameLogicManager>& glm);
+    static std::unique_ptr<IUiView> Create(UiViews name, const std::unique_ptr<IGraphicalHandler>& gh);
+    static std::unique_ptr<IUiView> Create(UiViews name, const std::unique_ptr<GameLogicManager>& glm, const std::unique_ptr<IGraphicalHandler>& gh);
 
 private:
     static std::map<UiViews, TCreateMethod>& s_methods();

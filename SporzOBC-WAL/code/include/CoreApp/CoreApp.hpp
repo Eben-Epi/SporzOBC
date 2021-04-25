@@ -10,11 +10,6 @@
 #ifndef SPORZOBC_WAL_COREAPP_HPP
 #define SPORZOBC_WAL_COREAPP_HPP
 
-enum AppState {
-    MAIN_MENU,
-    IN_GAME,
-};
-
 class CoreApp;
 
 #include "CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp"
@@ -37,10 +32,16 @@ class CoreApp;
         //! Afin d'utiliser le gameLogicManager, on récupère une instance de manière sécurisée
         std::unique_ptr<GameLogicManager> const &getGameLogicManagerInstance();
 
+        //! Afin d'utiliser le IGraphicalHandler, on récupère une instance de manière sécurisée
+        std::unique_ptr<IGraphicalHandler> const &getIGraphicalHandlerInstance();
+
         //! Initialization du gameLogicManager
         void initGameLogicManager();
 
         void initGraphicalHandler();
+
+        void MainMenu();
+
         void play();
     private:
         //! \sa GameLogicManager

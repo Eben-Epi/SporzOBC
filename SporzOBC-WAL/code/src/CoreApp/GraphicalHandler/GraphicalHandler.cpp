@@ -21,14 +21,20 @@ void GraphicalHandler::changeUiView(UiViews page) {
 
 void GraphicalHandler::loadUiView(UiViews page) {
     if (this->_loadedUiViews.find(page) == this->_loadedUiViews.end())
-        this->_loadedUiViews[page] = UiViewFactory::Create(page);
+        this->_loadedUiViews[page] = UiViewFactory::Create(page, this->_coreApp.getIGraphicalHandlerInstance());
     else
         qDebug("This view (%d) is already loaded. Fetch will be handled by cache.", page);
 }
 
 void GraphicalHandler::loadUiGameView(UiViews page) {
-    if (this->_loadedUiViews.find(page) == this->_loadedUiViews.end())
-        this->_loadedUiViews[page] = UiViewFactory::Create(page, this->_coreApp.getGameLogicManagerInstance());
+    if (this->_loadedUiViews.find(page) == this->_loadedUiViews.end()) {
+        try {
+            this->_coreApp.getGameLogicManagerInstance();
+        } catch (SporzException& e) {
+            this->_coreApp.initGameLogicManager();
+        }
+        this->_loadedUiViews[page] = UiViewFactory::Create(page, this->_coreApp.getGameLogicManagerInstance(), this->_coreApp.getIGraphicalHandlerInstance());
+    }
     else
         qDebug("This game view (%d) is already loaded. Fetch will be handled by cache.", page);
 }

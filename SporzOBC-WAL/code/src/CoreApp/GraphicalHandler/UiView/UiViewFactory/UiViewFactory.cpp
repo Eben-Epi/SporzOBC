@@ -25,17 +25,21 @@ bool UiViewFactory::Register(UiViews name, TCreateMethod funcCreate)
     return false;
 }
 
-std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name)
+std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name, const std::unique_ptr<IGraphicalHandler>& gh)
 {
-    if (auto it = s_methods().find(name); it != s_methods().end())
-        return it->second();
+    if (auto it = s_methods().find(name); it != s_methods().end()) {
+        auto ptr = it->second();
+        ptr->setGH(gh);
+        return ptr;
+    }
     return nullptr;
 }
 
-std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name, const std::unique_ptr<GameLogicManager>& gameLogicManager) {
+std::unique_ptr<IUiView> UiViewFactory::Create(UiViews name, const std::unique_ptr<GameLogicManager>& gameLogicManager, const std::unique_ptr<IGraphicalHandler>& gh) {
     if (auto it = s_methods().find(name); it != s_methods().end()) {
         auto ptr = it->second();
         if (auto ptr_tmp = dynamic_cast<UiGameView*>(ptr.get()); ptr_tmp != nullptr) {
+            ptr->setGH(gh);
             ptr_tmp->setGLM(gameLogicManager);
         }
         return ptr;

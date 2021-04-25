@@ -10,7 +10,9 @@
 #include "CoreApp/CoreApp.hpp"
 
 CoreApp::CoreApp() {
-
+    initGraphicalHandler();
+    this->_graphicalHandler->loadUiView(MAIN_MENU);
+    this->_graphicalHandler->changeUiView(MAIN_MENU);
 }
 
 CoreApp::~CoreApp() {
@@ -29,14 +31,21 @@ void CoreApp::initGameLogicManager() {
 }
 
 void CoreApp::play() {
-    this->initGameLogicManager();
-    if (this->_graphicalHandler) {
         this->_graphicalHandler->loadUiGameView(CALCULATOR);
         this->_graphicalHandler->changeUiView(CALCULATOR);
-    } else
-        throw SporzException("GraphicalHandler is not initialized, initGraphicalHandler has not been called or failed", "play");
 }
 
 void CoreApp::initGraphicalHandler() {
     this->_graphicalHandler = std::make_unique<GraphicalHandler>(*this);
+}
+
+void CoreApp::MainMenu() {
+
+}
+
+std::unique_ptr<IGraphicalHandler> const &CoreApp::getIGraphicalHandlerInstance() {
+    if (this->_graphicalHandler)
+        return this->_graphicalHandler;
+    else
+        throw SporzException("GraphicalHandler is not initialized, initGraphicalHandler has not been called or failed", "play");
 }
