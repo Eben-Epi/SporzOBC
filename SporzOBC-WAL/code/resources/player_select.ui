@@ -18,13 +18,20 @@
 	background-color: rgb(253, 253, 253);
 }
 
-QPushButton  {
-	border: 2px solid black;
-	background-color: white;
-	padding: 14px 28px;
-	font-size: 35px;
-	border-radius: 100%;
-}</string>
+QSpinBox{
+	width: 70px;
+	text-align: center;
+}
+
+QSpinBox::up-button {
+     subcontrol-origin: border;
+     subcontrol-position: right; /* position at the top right corner */
+ }
+
+ QSpinBox::down-button {
+     subcontrol-origin: border;
+     subcontrol-position: left; /* position at bottom right corner */
+ }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -73,12 +80,26 @@ QPushButton  {
         </spacer>
        </item>
        <item alignment="Qt::AlignHCenter">
-        <widget class="PlayerCountSpinBox" name="playerCountSpinBox">
+        <widget class="QSpinBox" name="playerCountSpinBox">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="frame">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="buttonSymbols">
+          <enum>QAbstractSpinBox::UpDownArrows</enum>
          </property>
         </widget>
        </item>
@@ -99,7 +120,20 @@ QPushButton  {
         </spacer>
        </item>
        <item>
-        <widget class="PlayerNameList" name="playerNameList"/>
+        <widget class="QListWidget" name="playerNameList">
+         <property name="font">
+          <font>
+           <pointsize>28</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="itemAlignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -107,18 +141,6 @@ QPushButton  {
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>PlayerCountSpinBox</class>
-   <extends>QSpinBox</extends>
-   <header>CoreApp/IGraphicalHandler/Widgets/PlayerCountSpinBox.hpp</header>
-  </customwidget>
-  <customwidget>
-   <class>PlayerNameList</class>
-   <extends>QListWidget</extends>
-   <header>CoreApp/IGraphicalHandler/Widgets/PlayerNameList.hpp</header>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -43,7 +43,7 @@ void GameLogicManager::resizePlayerVector(size_t size) {
 void GameLogicManager::setPlayerName(size_t id, std::string newUserName) {
     if (newUserName.empty())
         throw GameLogicManagerException("name of player is empty", "setPlayerName", PLAYER_NAME_EMPTY);
-    else if (newUserName.length() >= 12) {
+    else if (newUserName.length() >= 15) {
         throw GameLogicManagerException("name of player is too long", "setPlayerName", PLAYER_NAME_TOO_LONG);
     }
     if (this->playerCount >= id)

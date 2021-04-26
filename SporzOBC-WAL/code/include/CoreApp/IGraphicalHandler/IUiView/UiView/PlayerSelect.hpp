@@ -11,6 +11,7 @@
 
 #include <QWidget>
 #include <CoreApp/IGraphicalHandler/IUiView/IUiView.hpp>
+#include <QListWidget>
 
 namespace Ui {
     class PlayerSelect;
@@ -29,12 +30,12 @@ public:
     static std::unique_ptr<IUiView> CreateMethod();
     static UiViews GetFactoryName();
 
-
-//private slots:
-//    void on_playButton_clicked();
-//    void on_quitButton_clicked();
-
     Ui::PlayerSelect *ui;
+
+private slots:
+    void on_playerNameList_itemChanged(QListWidgetItem *);
+    void on_playerCountSpinBox_valueChanged(int);
+
 private:
     static bool s_registered;
 };
