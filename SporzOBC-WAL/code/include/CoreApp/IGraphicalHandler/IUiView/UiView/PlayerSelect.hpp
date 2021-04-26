@@ -34,8 +34,8 @@ public:
 //    void on_playButton_clicked();
 //    void on_quitButton_clicked();
 
-private:
     Ui::PlayerSelect *ui;
+private:
     static bool s_registered;
 };
 

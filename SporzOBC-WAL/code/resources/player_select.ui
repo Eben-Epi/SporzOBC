@@ -98,18 +98,8 @@ QPushButton  {
          </property>
         </spacer>
        </item>
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QPushButton" name="quitButton">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Quit</string>
-         </property>
-        </widget>
+       <item>
+        <widget class="PlayerNameList" name="playerNameList"/>
        </item>
       </layout>
      </item>
@@ -122,6 +112,11 @@ QPushButton  {
    <class>PlayerCountSpinBox</class>
    <extends>QSpinBox</extends>
    <header>CoreApp/IGraphicalHandler/Widgets/PlayerCountSpinBox.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>PlayerNameList</class>
+   <extends>QListWidget</extends>
+   <header>CoreApp/IGraphicalHandler/Widgets/PlayerNameList.hpp</header>
   </customwidget>
  </customwidgets>
  <resources/>

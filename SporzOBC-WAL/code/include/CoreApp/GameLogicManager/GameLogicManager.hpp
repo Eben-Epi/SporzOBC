@@ -136,6 +136,8 @@ public:
         //! Affectation aléatoire des génomes
         void randomizeGenomes();
 
+        std::vector<std::string> getPlayerNames();
+
     private:
         void resetGenomes();
         void resetRoles();

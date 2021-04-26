@@ -123,3 +123,11 @@ void GameLogicManager::randomizeGenomes() {
         }
     }
 }
+
+std::vector<std::string> GameLogicManager::getPlayerNames() {
+    std::vector<std::string> playerNames;
+    for (Player& player : this->_players) {
+        playerNames.emplace_back(player.getUserName());
+    }
+    return playerNames;
+}

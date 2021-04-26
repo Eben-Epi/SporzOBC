@@ -1,7 +1,7 @@
 #include <CoreApp/IGraphicalHandler/Widgets/MyModel/MyModel.hpp>
 
 MyModel::MyModel(QObject *parent)
-        : QAbstractTableModel(parent), GameUiModel()
+        : QAbstractTableModel(parent), GameUiWidget()
 {
 
 }

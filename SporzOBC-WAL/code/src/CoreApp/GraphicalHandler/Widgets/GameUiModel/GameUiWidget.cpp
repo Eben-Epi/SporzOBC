@@ -7,13 +7,13 @@
 
 */
 
-#include "CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiModel.hpp"
+#include "CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp"
 
-void GameUiModel::setGLM(GameLogicManager &glm) {
+void GameUiWidget::setGLM(GameLogicManager &glm) {
     this->_glm = &glm;
 }
 
-GameLogicManager &GameUiModel::accessGLM() {
+GameLogicManager &GameUiWidget::accessGLM() {
     if(this->_glm != nullptr)
         return *this->_glm;
     throw SporzException(" Either GameLogicManager is not initialized or this GameUiView has not been created by the right factory Create()", "accessGLM");

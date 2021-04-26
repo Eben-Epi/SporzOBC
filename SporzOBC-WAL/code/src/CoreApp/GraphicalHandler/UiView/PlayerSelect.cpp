@@ -17,8 +17,10 @@ PlayerSelect::PlayerSelect(QWidget *parent)
 }
 
 void PlayerSelect::showUi() {
-    static_cast<GameUiModel*>(ui->playerCountSpinBox)->setGLM(this->accessGLM());
+    static_cast<GameUiWidget*>(ui->playerCountSpinBox)->setGLM(this->accessGLM());
+    static_cast<GameUiWidget*>(ui->playerNameList)->setGLM(this->accessGLM());
     ui->playerCountSpinBox->init();
+    ui->playerNameList->init();
     this->show();
 }
 

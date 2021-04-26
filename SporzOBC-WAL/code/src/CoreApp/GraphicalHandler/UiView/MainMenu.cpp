@@ -8,7 +8,7 @@
 */
 
 #include <iostream>
-#include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiModel.hpp>
+#include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
 #include "./ui_main_menu.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/MainMenu.hpp"
 

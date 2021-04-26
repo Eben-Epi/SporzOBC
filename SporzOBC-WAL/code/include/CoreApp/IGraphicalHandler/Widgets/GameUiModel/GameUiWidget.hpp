@@ -7,18 +7,18 @@
 
 */
 
-#ifndef SPORZOBC_WAL_GAMEUIMODEL_HPP
-#define SPORZOBC_WAL_GAMEUIMODEL_HPP
+#ifndef SPORZOBC_WAL_GAMEUIWIDGET_HPP
+#define SPORZOBC_WAL_GAMEUIWIDGET_HPP
 
 #include <CoreApp/GameLogicManager/GameLogicManager.hpp>
 
-class GameUiModel {
+class GameUiWidget {
 public:
-    explicit GameUiModel() = default;
+    explicit GameUiWidget() = default;
     void setGLM(GameLogicManager& glm);
     GameLogicManager &accessGLM();
-    ~GameUiModel() = default;
+    ~GameUiWidget() = default;
 private:
     GameLogicManager *_glm;
 };
-#endif //SPORZOBC_WAL_GAMEUIMODEL_HPP
+#endif //SPORZOBC_WAL_GAMEUIWIDGET_HPP

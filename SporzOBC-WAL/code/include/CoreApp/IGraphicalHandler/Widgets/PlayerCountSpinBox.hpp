@@ -11,9 +11,9 @@
 
 #include <QString>
 #include <QSpinBox>
-#include "CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiModel.hpp"
+#include "CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp"
 
-class PlayerCountSpinBox : public QSpinBox, public GameUiModel {
+class PlayerCountSpinBox : public QSpinBox, public GameUiWidget {
 Q_OBJECT
 
 public:
