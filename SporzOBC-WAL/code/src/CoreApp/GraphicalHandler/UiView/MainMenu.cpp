@@ -8,6 +8,7 @@
 */
 
 #include <iostream>
+#include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiModel.hpp>
 #include "./ui_main_menu.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/MainMenu.hpp"
 
@@ -38,8 +39,8 @@ void MainMenu::hideUi() {
 }
 
 void MainMenu::on_playButton_clicked() {
-    this->accessGH().loadUiGameView(CALCULATOR);
-    this->accessGH().changeUiView(CALCULATOR);
+    this->accessGH().loadUiGameView(PLAYER_SELECT);
+    this->accessGH().changeUiView(PLAYER_SELECT);
 }
 
 void MainMenu::on_quitButton_clicked() {

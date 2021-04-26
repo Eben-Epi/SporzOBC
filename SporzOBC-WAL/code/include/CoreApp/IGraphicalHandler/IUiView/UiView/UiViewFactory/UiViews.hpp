@@ -13,6 +13,7 @@
 enum UiViews {
     NO_VIEW,
     MAIN_MENU,
+    PLAYER_SELECT,
     CALCULATOR
 };
 

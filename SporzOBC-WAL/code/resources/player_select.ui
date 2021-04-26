@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainMenu</class>
- <widget class="QWidget" name="MainMenu">
+ <class>PlayerSelect</class>
+ <widget class="QWidget" name="PlayerSelect">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,35 +10,21 @@
     <height>640</height>
    </rect>
   </property>
-  <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
-   </sizepolicy>
-  </property>
   <property name="windowTitle">
-   <string>SporzOBC</string>
-  </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
+   <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#MainMenu {
-    background-color: rgb(253, 253, 253);
-    }
+   <string notr="true">#PlayerSelect {
+	background-color: rgb(253, 253, 253);
+}
 
-    QPushButton  {
-    border: 2px solid black;
-    background-color: white;
-    padding: 14px 28px;
-    font-size: 35px;
-    border-radius: 100%;
-    }
-
-    QPushButton#playButton {
-    border-color: #2196F3;
-    color: dodgerblue;
-    }</string>
+QPushButton  {
+	border: 2px solid black;
+	background-color: white;
+	padding: 14px 28px;
+	font-size: 35px;
+	border-radius: 100%;
+}</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -54,7 +40,7 @@
         </font>
        </property>
        <property name="text">
-        <string>SPORZ OnBoardCompanion</string>
+        <string>Nombre de joueurs</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -63,6 +49,13 @@
      </item>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
@@ -80,27 +73,12 @@
         </spacer>
        </item>
        <item alignment="Qt::AlignHCenter">
-        <widget class="QPushButton" name="playButton">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
+        <widget class="PlayerCountSpinBox" name="playerCountSpinBox">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>200</width>
-           <height>200</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Play</string>
          </property>
         </widget>
        </item>
@@ -139,6 +117,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlayerCountSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>CoreApp/IGraphicalHandler/Widgets/PlayerCountSpinBox.hpp</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
