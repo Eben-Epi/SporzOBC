@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PlayerSelect</class>
- <widget class="QWidget" name="PlayerSelect">
+ <class>ElectChief</class>
+ <widget class="QWidget" name="ElectChief">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,40 +10,26 @@
     <height>640</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>0</width>
-    <height>0</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#PlayerSelect {
-	background-color: rgb(253, 253, 253);
-}
+   <string notr="true">#ElectChief {
+    background-color: rgb(253, 253, 253);
+    }
 
-QSpinBox{
-	width: 70px;
-	text-align: center;
-}
-
-QSpinBox::up-button {
-     subcontrol-origin: border;
-     subcontrol-position: right; /* position at the top right corner */
- }
-
- QSpinBox::down-button {
-     subcontrol-origin: border;
-     subcontrol-position: left; /* position at bottom right corner */
- }
 QPushButton  {
     border: 2px solid black;
     background-color: white;
     padding: 10px 10px;
     font-size: 32px;
     border-radius: 50px;
+}
+
+QComboBox  {
+	border: 2px solid black;
+    background-color: white;
+    font-size: 28px;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -60,7 +46,7 @@ QPushButton  {
         </font>
        </property>
        <property name="text">
-        <string>Nombre de joueurs</string>
+        <string>Election du chef</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -71,6 +57,12 @@ QPushButton  {
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="Line" name="line">
+         <property name="font">
+          <font>
+           <family>Yu Gothic UI Semilight</family>
+           <pointsize>18</pointsize>
+          </font>
+         </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -92,29 +84,8 @@ QPushButton  {
          </property>
         </spacer>
        </item>
-       <item alignment="Qt::AlignHCenter">
-        <widget class="QSpinBox" name="playerCountSpinBox">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-          </font>
-         </property>
-         <property name="frame">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-         <property name="buttonSymbols">
-          <enum>QAbstractSpinBox::UpDownArrows</enum>
-         </property>
-        </widget>
+       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+        <widget class="QComboBox" name="selectChief"/>
        </item>
        <item>
         <spacer name="verticalSpacer_2">
@@ -131,22 +102,6 @@ QPushButton  {
           </size>
          </property>
         </spacer>
-       </item>
-       <item>
-        <widget class="QListWidget" name="playerNameList">
-         <property name="font">
-          <font>
-           <pointsize>28</pointsize>
-           <italic>true</italic>
-          </font>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="itemAlignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
        </item>
        <item alignment="Qt::AlignRight">
         <widget class="QPushButton" name="nextButton">

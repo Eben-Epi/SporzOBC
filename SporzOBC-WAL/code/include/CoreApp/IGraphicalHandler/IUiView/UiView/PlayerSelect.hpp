@@ -35,6 +35,7 @@ public:
 private slots:
     void on_playerNameList_itemChanged(QListWidgetItem *);
     void on_playerCountSpinBox_valueChanged(int);
+    void on_nextButton_clicked();
 
 private:
     static bool s_registered;

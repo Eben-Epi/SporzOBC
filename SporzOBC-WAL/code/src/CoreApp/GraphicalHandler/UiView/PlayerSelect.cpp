@@ -78,3 +78,8 @@ void PlayerSelect::on_playerCountSpinBox_valueChanged(int desiredSize) {
         listSize += counter;
     }
 }
+
+void PlayerSelect::on_nextButton_clicked() {
+    this->accessGH().loadUiGameView(GAME_INFORMATION);
+    this->accessGH().changeUiView(GAME_INFORMATION);
+}

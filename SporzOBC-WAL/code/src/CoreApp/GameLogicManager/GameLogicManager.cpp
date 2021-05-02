@@ -107,12 +107,16 @@ void GameLogicManager::randomizeRoles() {
         this->_players[8].setRole(NOVICE_HACKER);
     if (this->playerCount > 9)
         this->_players[9].setRole(PAINTER);
+    this->randomizeGenomes();
 }
 
 void GameLogicManager::randomizeGenomes() {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::shuffle(this->_players.begin(), this->_players.end(), std::default_random_engine(seed));
     bool immuneSet = false;
+    for (Player &player : this->_players)
+        if (player.getRole() != MUTANT)
+            player.setGenome(STANDARD);
 
     for (Player& player : this->_players) {
         if (player.getGenome() == STANDARD) {
@@ -130,4 +134,16 @@ std::vector<std::string> GameLogicManager::getPlayerNames() {
         playerNames.emplace_back(player.getUserName());
     }
     return playerNames;
+}
+
+void GameLogicManager::assignChief(size_t id) {
+    if (this->playerCount >= id) {
+        for (Player& player: this->_players) {
+            if (player.getID() == id) {
+                this->chiefID = id;
+                return;
+            }
+        }
+    }
+    throw GameLogicManagerException("id of player is invalid", "assignChief", PLAYER_ID_INVALID);
 }

@@ -138,16 +138,16 @@ public:
 
         std::vector<std::string> getPlayerNames();
 
+        void assignChief(size_t id);
+
     private:
-        void resetGenomes();
-        void resetRoles();
-        void setHostMutant();
         void resizePlayerVector(size_t size);
         Player& getPlayerInstance(size_t id, const std::string& funcName);
 
         std::vector<Player> _players;
         size_t playerCount;
         GameState gameState = BOARDING;
+        size_t chiefID = 0;
     };
 
 
