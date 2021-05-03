@@ -40,9 +40,6 @@ class CoreApp;
 
         void initGraphicalHandler();
 
-        void MainMenu();
-
-        void play();
     private:
         //! \sa GameLogicManager
         std::unique_ptr<GameLogicManager> _gameLogicManager;

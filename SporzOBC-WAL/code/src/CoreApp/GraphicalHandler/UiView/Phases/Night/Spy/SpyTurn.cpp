@@ -1,0 +1,52 @@
+/*!
+
+\file SpyTurn.cpp
+\brief Enter your brief here //TODO
+\author Eben
+\version 0.1
+
+*/
+
+#include <iostream>
+#include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include "./Phases/Night/Spy/ui_turn.h"
+#include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Spy/SpyTurn.hpp"
+
+SpyTurn::SpyTurn(QWidget *parent)
+        : QWidget(parent), ui(new Ui::SpyTurn), RegisteredInFactory<SpyTurn>()
+{
+    ui->setupUi(this);
+}
+
+void SpyTurn::showUi() {
+    this->show();
+}
+
+SpyTurn::~SpyTurn() {
+    delete ui;
+}
+
+std::unique_ptr<IUiView> SpyTurn::CreateMethod() {
+    return std::make_unique<SpyTurn>();
+}
+
+UiViews SpyTurn::GetFactoryName() {
+    return SPY_TURN;
+}
+
+void SpyTurn::hideUi() {
+    this->hide();
+}
+
+void SpyTurn::on_nextButton_clicked() {
+    if (!this->accessGLM().isTurnPassed(SPY)) {
+        this->accessGH().loadUiGameView(SPY_TARGET);
+        this->accessGH().changeUiView(SPY_TARGET);
+    } else if (this->accessGLM().getPlayerCount() > 9) {
+        this->accessGH().loadUiGameView(PAINTER_TURN);
+        this->accessGH().changeUiView(PAINTER_TURN);
+    } else {
+        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
+        this->accessGH().changeUiView(MORNING_WAKING_UP);
+    }
+}

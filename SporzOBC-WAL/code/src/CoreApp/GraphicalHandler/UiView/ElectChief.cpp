@@ -40,8 +40,8 @@ void ElectChief::hideUi() {
 }
 
 void ElectChief::on_nextButton_clicked() {
-//    this->accessGH().loadUiGameView(PLAYER_SELECT);
-//    this->accessGH().changeUiView(PLAYER_SELECT);
+    this->accessGH().loadUiGameView(EVENING_BED_TIME);
+    this->accessGH().changeUiView(EVENING_BED_TIME);
 }
 
 void ElectChief::fillComboBox() {

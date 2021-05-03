@@ -35,8 +35,14 @@ QComboBox  {
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
+     <item alignment="Qt::AlignHCenter">
       <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="font">
         <font>
          <family>Yu Gothic UI Semibold</family>
@@ -85,7 +91,14 @@ QComboBox  {
         </spacer>
        </item>
        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-        <widget class="QComboBox" name="selectChief"/>
+        <widget class="QComboBox" name="selectChief">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>80</height>
+          </size>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_2">

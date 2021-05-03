@@ -32,11 +32,15 @@ void GameLogicManager::createGame() {
 }
 
 void GameLogicManager::resizePlayerVector(size_t size) {
-    if (size > this->_players.size())
+    if (size > this->_players.size()) {
         for (size_t current_size = this->_players.size() + 1; current_size != size + 1; current_size++)
             this->_players.emplace_back("Player_Name" + std::to_string(current_size), current_size);
-    else if (size < this->_players.size())
+        this->_turns.resize(size, false);
+    }
+    else if (size < this->_players.size()) {
         this->_players.resize(size);
+        this->_turns.resize(size, false);
+    }
     this->playerCount = size;
 }
 
@@ -146,4 +150,16 @@ void GameLogicManager::assignChief(size_t id) {
         }
     }
     throw GameLogicManagerException("id of player is invalid", "assignChief", PLAYER_ID_INVALID);
+}
+
+void GameLogicManager::resetTurns() {
+    std::fill(_turns.begin(), _turns.end(), false);
+}
+
+void GameLogicManager::setTurnPassed(Role role) {
+    this->_turns[role] = true;
+}
+
+bool GameLogicManager::isTurnPassed(Role role) {
+    return this->_turns[role];
 }

@@ -30,17 +30,8 @@ void CoreApp::initGameLogicManager() {
     this->_gameLogicManager = std::make_unique<GameLogicManager>();
 }
 
-void CoreApp::play() {
-        this->_graphicalHandler->loadUiGameView(CALCULATOR);
-        this->_graphicalHandler->changeUiView(CALCULATOR);
-}
-
 void CoreApp::initGraphicalHandler() {
     this->_graphicalHandler = std::make_unique<GraphicalHandler>(*this);
-}
-
-void CoreApp::MainMenu() {
-
 }
 
 std::unique_ptr<IGraphicalHandler> const &CoreApp::getIGraphicalHandlerInstance() {

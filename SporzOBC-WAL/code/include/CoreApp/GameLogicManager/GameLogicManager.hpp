@@ -22,7 +22,7 @@ enum GameState {
     BOARDING,
     DAY,
     NIGHT,
-    RECAP
+    RECAP,
 };
 
 enum GameLogicManagerExceptionType {
@@ -140,6 +140,10 @@ public:
 
         void assignChief(size_t id);
 
+        void resetTurns();
+
+        void setTurnPassed(Role);
+        bool isTurnPassed(Role);
     private:
         void resizePlayerVector(size_t size);
         Player& getPlayerInstance(size_t id, const std::string& funcName);
@@ -148,6 +152,7 @@ public:
         size_t playerCount;
         GameState gameState = BOARDING;
         size_t chiefID = 0;
+        std::vector<bool> _turns;
     };
 
 

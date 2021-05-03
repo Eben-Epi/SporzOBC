@@ -41,8 +41,6 @@ enum Genome {
 };
 
 enum Role {
-    JOBLESS,
-
     /*!
      * Au début il n’y en a qu’un : le mutant de base.
      * Petits à petit il va muter d’autres personnes qui vont devenir des mutants.
@@ -105,7 +103,9 @@ enum Role {
      * Chaque nuit il montre un personne au maître du jeu et il lui révèle toutes les personnes
      * ayant été en contacte avec lui durante cette nuit
      */
-    PAINTER
+    PAINTER,
+
+    JOBLESS
 };
 
 //! Faction, entre humain ou mutant

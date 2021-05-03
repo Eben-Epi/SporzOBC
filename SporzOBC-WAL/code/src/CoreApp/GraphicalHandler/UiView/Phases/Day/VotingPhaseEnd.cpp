@@ -1,0 +1,44 @@
+/*!
+
+\file VotingPhaseEnd.cpp
+\brief Enter your brief here //TODO
+\author Eben
+\version 0.1
+
+*/
+
+#include <iostream>
+#include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include "./Phases/Day/ui_voting_phase_end.h"
+#include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Day/VotingPhaseEnd.hpp"
+
+VotingPhaseEnd::VotingPhaseEnd(QWidget *parent)
+        : QWidget(parent), ui(new Ui::VotingPhaseEnd), RegisteredInFactory<VotingPhaseEnd>()
+{
+    ui->setupUi(this);
+}
+
+void VotingPhaseEnd::showUi() {
+    this->show();
+}
+
+VotingPhaseEnd::~VotingPhaseEnd() {
+    delete ui;
+}
+
+std::unique_ptr<IUiView> VotingPhaseEnd::CreateMethod() {
+    return std::make_unique<VotingPhaseEnd>();
+}
+
+UiViews VotingPhaseEnd::GetFactoryName() {
+    return VOTING_PHASE_END;
+}
+
+void VotingPhaseEnd::hideUi() {
+    this->hide();
+}
+
+void VotingPhaseEnd::on_nextButton_clicked() {
+    this->accessGH().loadUiGameView(VOTING_PHASE_RESULT);
+    this->accessGH().changeUiView(VOTING_PHASE_RESULT);
+}
