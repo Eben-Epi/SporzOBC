@@ -28,4 +28,4 @@ else()
         )
 endif()
 
-target_link_libraries(SporzOBC-WAL PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(SporzOBC-WAL PUBLIC Qt${QT_VERSION_MAJOR}::Widgets)

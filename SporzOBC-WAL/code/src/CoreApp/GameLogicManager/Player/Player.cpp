@@ -19,7 +19,7 @@ void Player::setUserName(std::string newUserName) {
     this->username = std::move(newUserName);
 }
 
-const std::string &Player::getUserName() {
+const std::string &Player::getUserName() const {
     return this->username;
 }
 
@@ -41,4 +41,8 @@ const Genome &Player::getGenome() const {
 
 const size_t &Player::getID() const {
     return this->playerID;
+}
+
+bool Player::isAlive() {
+    return !(this->_state == DEAD);
 }

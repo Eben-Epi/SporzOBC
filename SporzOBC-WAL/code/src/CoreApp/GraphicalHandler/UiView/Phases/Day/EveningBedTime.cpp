@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
-#include "./Phases/Day/ui_evening_bed_time.h"
+#include "./Phases/Night/ui_evening_bed_time.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Day/EveningBedTime.hpp"
 
 EveningBedTime::EveningBedTime(QWidget *parent)

@@ -45,4 +45,4 @@ file(GLOB_RECURSE SOURCES_H ${PROJECT_SOURCE_DIR}/include/*.h)
 message(${SOURCES_CPP})
 
 add_executable(SporzOBC-WAL ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H})
-target_link_libraries(SporzOBC-WAL PRIVATE ${CONAN_LIBS} Qt5::Core Qt5::Gui)
+target_link_libraries(SporzOBC-WAL PUBLIC ${CONAN_LIBS} Qt5::Core Qt5::Gui)

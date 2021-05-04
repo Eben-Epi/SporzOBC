@@ -19,6 +19,20 @@ MutantsTurn::MutantsTurn(QWidget *parent)
 }
 
 void MutantsTurn::showUi() {
+    auto aliveMutants = this->accessGLM().getAlivePlayersWithRole(MUTANT);
+    std::string labelText;
+    if (aliveMutants.size() > 1) {
+        labelText += "Les mutants en vie sont : ";
+        for (auto player = aliveMutants.begin(); player != aliveMutants.end(); ++player) {
+            if (player != aliveMutants.begin())
+                labelText += (std::next(player) == aliveMutants.end() ? " et " : ", ") + player.operator*()->getUserName();
+            else
+                labelText += player.operator*()->getUserName();
+        }
+        labelText += ".";
+    } else
+        labelText += "Le mutant de base nommé " + aliveMutants[0]->getUserName() + " se réveille.";
+    this->ui->aliveMutants->setText(labelText.c_str());
     this->show();
 }
 

@@ -163,3 +163,25 @@ void GameLogicManager::setTurnPassed(Role role) {
 bool GameLogicManager::isTurnPassed(Role role) {
     return this->_turns[role];
 }
+
+std::vector<const Player*> GameLogicManager::getAlivePlayersWithRole(Role role) {
+    std::vector<const Player*> targetedPlayers;
+
+    for (Player& player: this->_players) {
+        if (player.getRole() == role && player.isAlive()) {
+            targetedPlayers.emplace_back(&player);
+        }
+    }
+    return targetedPlayers;
+}
+
+const Player &GameLogicManager::getAlivePlayerById(size_t ID) {
+    if (this->playerCount >= ID) {
+        for (Player& player: this->_players) {
+            if (player.getID() == ID) {
+                return player;
+            }
+        }
+    }
+    throw GameLogicManagerException("id of player is invalid", "assignChief", PLAYER_ID_INVALID);
+}

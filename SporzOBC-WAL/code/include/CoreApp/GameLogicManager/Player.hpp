@@ -24,7 +24,9 @@ public:
     void setUserName(std::string);
 
     //! Récupérer le nom du joueur
-    const std::string& getUserName();
+    const std::string& getUserName() const;
+
+    bool isAlive();
 
     void setRole(Role);
     [[nodiscard]] const Role& getRole() const;
