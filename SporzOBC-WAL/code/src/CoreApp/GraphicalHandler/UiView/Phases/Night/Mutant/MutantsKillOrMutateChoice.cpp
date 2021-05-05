@@ -19,6 +19,7 @@ MutantsKillOrMutateChoice::MutantsKillOrMutateChoice(QWidget *parent)
 }
 
 void MutantsKillOrMutateChoice::showUi() {
+    this->ui->nextButton->setDisabled(true);
     this->show();
 }
 
@@ -41,4 +42,14 @@ void MutantsKillOrMutateChoice::hideUi() {
 void MutantsKillOrMutateChoice::on_nextButton_clicked() {
     this->accessGH().loadUiGameView(MUTANTS_KILL_OR_MUTATE_TARGET);
     this->accessGH().changeUiView(MUTANTS_KILL_OR_MUTATE_TARGET);
+}
+
+void MutantsKillOrMutateChoice::on_choice_buttonToggled(QAbstractButton *button, bool checked) {
+    if (checked) {
+        if (button == this->ui->killChoice)
+            this->accessGLM().setMutantChoice(KILLING);
+        } else if (button == this->ui->mutateChoice) {
+            this->accessGLM().setMutantChoice(MUTATION);
+    }
+    this->ui->nextButton->setEnabled(true);
 }

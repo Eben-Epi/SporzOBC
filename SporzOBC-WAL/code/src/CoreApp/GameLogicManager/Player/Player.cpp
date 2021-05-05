@@ -46,3 +46,33 @@ const size_t &Player::getID() const {
 bool Player::isAlive() {
     return !(this->_state == DEAD);
 }
+
+bool Player::isIll() {
+    return this->_state == ILL;
+}
+
+bool Player::kill() {
+    this->_state = DEAD;
+    return true;
+}
+
+bool Player::paralyze() {
+    this->_state = STUNNED;
+    return true;
+}
+
+bool Player::mutate() {
+    if (this->_genome == IMMUNE)
+        return false;
+    else
+        this->_state = ILL;
+    return true;
+}
+
+bool Player::heal() {
+    if (this->_genome == HOST)
+        return false;
+    else
+        this->_state = ALIVE;
+    return true;
+}

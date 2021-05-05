@@ -39,11 +39,8 @@ void PainterTurn::hideUi() {
 }
 
 void PainterTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(PAINTER)) {
-        this->accessGH().loadUiGameView(PAINTER_TARGET);
-        this->accessGH().changeUiView(PAINTER_TARGET);
-    } else {
-        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
-        this->accessGH().changeUiView(MORNING_WAKING_UP);
-    }
+//    if (!this->accessGLM().isTurnPassed(PAINTER)) {
+    this->accessGH().loadUiGameView(PAINTER_TARGET);
+    this->accessGH().changeUiView(PAINTER_TARGET);
+//    }
 }

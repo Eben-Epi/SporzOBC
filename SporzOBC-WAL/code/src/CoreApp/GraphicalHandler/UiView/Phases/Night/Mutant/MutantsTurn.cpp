@@ -19,9 +19,9 @@ MutantsTurn::MutantsTurn(QWidget *parent)
 }
 
 void MutantsTurn::showUi() {
-    auto aliveMutants = this->accessGLM().getAlivePlayersWithRole(MUTANT);
+    auto aliveMutants = this->accessGLM().getAlivePlayersAssociatedWithRole(MUTANT);
     std::string labelText;
-    if (aliveMutants.size() > 1) {
+    if (aliveMutants.size() > 1 && this->accessGLM().isTurnPassed(MUTANT)) {
         labelText += "Les mutants en vie sont : ";
         for (auto player = aliveMutants.begin(); player != aliveMutants.end(); ++player) {
             if (player != aliveMutants.begin())
@@ -53,11 +53,11 @@ void MutantsTurn::hideUi() {
 }
 
 void MutantsTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(MUTANT)) {
+//    if (!this->accessGLM().isTurnPassed(MUTANT)) {
         this->accessGH().loadUiGameView(MUTANTS_KILL_OR_MUTATE_CHOICE);
         this->accessGH().changeUiView(MUTANTS_KILL_OR_MUTATE_CHOICE);
-    } else {
-        this->accessGH().loadUiGameView(MUTANTS_RECAP);
-        this->accessGH().changeUiView(MUTANTS_RECAP);
-    }
+//    } else {
+//        this->accessGH().loadUiGameView(MUTANTS_RECAP);
+//        this->accessGH().changeUiView(MUTANTS_RECAP);
+//    }
 }

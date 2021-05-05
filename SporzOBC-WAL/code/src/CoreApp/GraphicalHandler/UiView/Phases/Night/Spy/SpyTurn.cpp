@@ -39,14 +39,8 @@ void SpyTurn::hideUi() {
 }
 
 void SpyTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(SPY)) {
-        this->accessGH().loadUiGameView(SPY_TARGET);
-        this->accessGH().changeUiView(SPY_TARGET);
-    } else if (this->accessGLM().getPlayerCount() > 9) {
-        this->accessGH().loadUiGameView(PAINTER_TURN);
-        this->accessGH().changeUiView(PAINTER_TURN);
-    } else {
-        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
-        this->accessGH().changeUiView(MORNING_WAKING_UP);
-    }
+//    if (!this->accessGLM().isTurnPassed(SPY)) {
+    this->accessGH().loadUiGameView(SPY_TARGET);
+    this->accessGH().changeUiView(SPY_TARGET);
+//    } else
 }

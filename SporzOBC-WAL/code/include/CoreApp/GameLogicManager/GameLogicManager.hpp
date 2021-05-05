@@ -12,6 +12,7 @@
 
 #include <utility>
 #include <vector>
+#include <map>
 #include "SporzException/SporzException.hpp"
 #include "Player.hpp"
 
@@ -30,6 +31,7 @@ enum GameLogicManagerExceptionType {
     INCORRECT_NUMBER_OF_PLAYERS,
     PLAYER_NAME_EMPTY,
     PLAYER_ID_INVALID,
+    PLAYER_NAME_INVALID,
     PLAYER_NAME_TOO_LONG
 };
 
@@ -136,9 +138,11 @@ public:
         //! Affectation aléatoire des génomes
         void randomizeGenomes();
 
-        std::vector<const Player*> getAlivePlayersWithRole(Role role);
+        std::vector<const Player*> getAlivePlayersAssociatedWithRole(Role role);
+        std::vector<const Player*> getAlivePlayersTargetedByRole(Role role);
 
         const Player& getAlivePlayerById(size_t ID);
+        size_t getAlivePlayerIDByName(const std::string&);
 
         std::vector<std::string> getPlayerNames();
 
@@ -148,6 +152,18 @@ public:
 
         void setTurnPassed(Role);
         bool isTurnPassed(Role);
+
+        void setMutantChoice(ActionType);
+        void setMutantsChoiceTarget(size_t);
+        void setMutantsParalysisTarget(size_t);
+        void setDoctorsChoiceTargets(size_t initiator, size_t target);
+
+        size_t getMutantsChoiceTarget();
+
+        bool killBy(Role);
+        std::map<size_t, bool> heals();
+        bool mutate();
+        bool paralyze();
     private:
         void resizePlayerVector(size_t size);
         Player& getPlayerInstance(size_t id, const std::string& funcName);
@@ -157,6 +173,12 @@ public:
         GameState gameState = BOARDING;
         size_t chiefID = 0;
         std::vector<bool> _turns;
+        ActionType mutantChoice = NO_ACTION;
+        ActionType doctorChoice = NO_ACTION;
+        size_t mutantChoiceTarget = 0;
+        size_t mutantParalysisTarget = 0;
+        std::map<size_t, size_t> doctorTargets;
+
     };
 
 

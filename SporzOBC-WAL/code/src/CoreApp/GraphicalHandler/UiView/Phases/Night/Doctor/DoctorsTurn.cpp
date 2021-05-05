@@ -39,11 +39,11 @@ void DoctorsTurn::hideUi() {
 }
 
 void DoctorsTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(DOCTOR)) {
-        this->accessGH().loadUiGameView(DOCTORS_KILL_OR_HEAL_CHOICE);
-        this->accessGH().changeUiView(DOCTORS_KILL_OR_HEAL_CHOICE);
-    } else {
-        this->accessGH().loadUiGameView(DOCTORS_RECAP);
-        this->accessGH().changeUiView(DOCTORS_RECAP);
-    }
+//    if (!this->accessGLM().isTurnPassed(DOCTOR)) {
+    this->accessGH().loadUiGameView(DOCTORS_KILL_OR_HEAL_CHOICE);
+    this->accessGH().changeUiView(DOCTORS_KILL_OR_HEAL_CHOICE);
+//    } else {
+//        this->accessGH().loadUiGameView(DOCTORS_RECAP);
+//        this->accessGH().changeUiView(DOCTORS_RECAP);
+//    }
 }

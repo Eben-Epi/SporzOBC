@@ -40,6 +40,6 @@ void ComputerScientistResult::hideUi() {
 
 void ComputerScientistResult::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(COMPUTER_SCIENTIST);
-    this->accessGH().loadUiGameView(COMPUTER_SCIENTIST_TURN);
-    this->accessGH().changeUiView(COMPUTER_SCIENTIST_TURN);
+    this->accessGH().loadUiGameView(GENETICIST_TURN);
+    this->accessGH().changeUiView(GENETICIST_TURN);
 }

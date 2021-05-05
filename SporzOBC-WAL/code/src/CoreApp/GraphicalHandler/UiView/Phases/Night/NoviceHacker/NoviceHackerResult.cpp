@@ -40,6 +40,11 @@ void NoviceHackerResult::hideUi() {
 
 void NoviceHackerResult::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(NOVICE_HACKER);
-    this->accessGH().loadUiGameView(NOVICE_HACKER_TURN);
-    this->accessGH().changeUiView(NOVICE_HACKER_TURN);
+    if (this->accessGLM().getPlayerCount() > 8) {
+        this->accessGH().loadUiGameView(SPY_TURN);
+        this->accessGH().changeUiView(SPY_TURN);
+    } else {
+        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
+        this->accessGH().changeUiView(MORNING_WAKING_UP);
+    }
 }

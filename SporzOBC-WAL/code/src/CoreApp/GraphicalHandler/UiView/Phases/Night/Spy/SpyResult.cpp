@@ -40,6 +40,11 @@ void SpyResult::hideUi() {
 
 void SpyResult::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(SPY);
-    this->accessGH().loadUiGameView(SPY_TURN);
-    this->accessGH().changeUiView(SPY_TURN);
+    if (this->accessGLM().getPlayerCount() > 9) {
+        this->accessGH().loadUiGameView(PAINTER_TURN);
+        this->accessGH().changeUiView(PAINTER_TURN);
+    } else {
+        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
+        this->accessGH().changeUiView(MORNING_WAKING_UP);
+    }
 }

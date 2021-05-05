@@ -29,9 +29,11 @@ public:
 
     static std::unique_ptr<IUiView> CreateMethod();
     static UiViews GetFactoryName();
+    void fillComboBox();
 
 private slots:
     void on_nextButton_clicked();
+    void on_selectTarget_currentTextChanged(const QString&);
 
 private:
     Ui::MutantsParalysisTarget *ui;

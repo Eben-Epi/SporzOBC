@@ -40,6 +40,6 @@ void PainterResult::hideUi() {
 
 void PainterResult::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(PAINTER);
-    this->accessGH().loadUiGameView(PAINTER_TURN);
-    this->accessGH().changeUiView(PAINTER_TURN);
+    this->accessGH().loadUiGameView(MORNING_WAKING_UP);
+    this->accessGH().changeUiView(MORNING_WAKING_UP);
 }

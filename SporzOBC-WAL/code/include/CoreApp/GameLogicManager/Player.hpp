@@ -24,9 +24,14 @@ public:
     void setUserName(std::string);
 
     //! Récupérer le nom du joueur
-    const std::string& getUserName() const;
+    [[nodiscard]] const std::string& getUserName() const;
 
     bool isAlive();
+    bool isIll();
+    bool kill();
+    bool paralyze();
+    bool heal();
+    bool mutate();
 
     void setRole(Role);
     [[nodiscard]] const Role& getRole() const;

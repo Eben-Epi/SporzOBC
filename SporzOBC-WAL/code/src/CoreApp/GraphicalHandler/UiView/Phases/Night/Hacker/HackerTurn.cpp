@@ -39,14 +39,8 @@ void HackerTurn::hideUi() {
 }
 
 void HackerTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(HACKER)) {
+//    if (!this->accessGLM().isTurnPassed(HACKER)) {
         this->accessGH().loadUiGameView(HACKER_TARGET);
         this->accessGH().changeUiView(HACKER_TARGET);
-    } else if (this->accessGLM().getPlayerCount() > 7) {
-        this->accessGH().loadUiGameView(NOVICE_HACKER_TURN);
-        this->accessGH().changeUiView(NOVICE_HACKER_TURN);
-    } else {
-        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
-        this->accessGH().changeUiView(MORNING_WAKING_UP);
-    }
+//    } else
 }

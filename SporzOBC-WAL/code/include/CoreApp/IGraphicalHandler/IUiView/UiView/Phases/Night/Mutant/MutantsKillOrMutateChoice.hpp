@@ -10,6 +10,7 @@
 #define SPORZOBC_WAL_MUTANTS_KILL_OR_MUTATE_CHOICE_HPP
 
 #include <QWidget>
+#include <QAbstractButton>
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/UiViewFactory/UiViewFactory.hpp"
 
 namespace Ui {
@@ -32,6 +33,7 @@ public:
 
 private slots:
     void on_nextButton_clicked();
+    void on_choice_buttonToggled(QAbstractButton *button, bool checked);
 
 private:
     Ui::MutantsKillOrMutateChoice *ui;

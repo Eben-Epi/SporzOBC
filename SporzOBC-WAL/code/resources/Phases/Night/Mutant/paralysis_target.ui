@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#MutantsParalysisTarget {
-    background-color: rgb(58, 58, 58);;
+    background-color: rgb(58, 58, 58);
     }
 
 QLabel {
@@ -29,6 +29,12 @@ QPushButton  {
     font-size: 32px;
 	color:white;
     border-radius: 50px;
+}
+QComboBox  {
+	border: 2px solid white;
+    background-color:  rgb(58, 58, 58);
+    font-size: 28px;
+	color: white;
 }</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -51,7 +57,7 @@ QPushButton  {
         </font>
        </property>
        <property name="text">
-        <string>Cible des mutant.e.s</string>
+        <string>Cible de la paralysie</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -70,6 +76,89 @@ QPushButton  {
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Segoe UI Light</family>
+           <pointsize>16</pointsize>
+           <italic>true</italic>
+          </font>
+         </property>
+         <property name="text">
+          <string>“Les mutants vont maintenant me désigner une personne à paralyser”</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI Light</family>
+           <pointsize>16</pointsize>
+           <italic>false</italic>
+           <kerning>true</kerning>
+          </font>
+         </property>
+         <property name="text">
+          <string>Comme pour l’action précédente, passez derrière chaque joueur pour confirmer la cible des mutants.</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item alignment="Qt::AlignHCenter">
+        <widget class="QComboBox" name="selectTarget">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>80</height>
+          </size>
          </property>
         </widget>
        </item>

@@ -39,11 +39,11 @@ void GeneticistTurn::hideUi() {
 }
 
 void GeneticistTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(GENETICIST)) {
+//    if (!this->accessGLM().isTurnPassed(GENETICIST)) {
         this->accessGH().loadUiGameView(GENETICIST_TARGET);
         this->accessGH().changeUiView(GENETICIST_TARGET);
-    } else {
-        this->accessGH().loadUiGameView(PSYCHOLOGIST_TURN);
-        this->accessGH().changeUiView(PSYCHOLOGIST_TURN);
-    }
+//    } else {
+//        this->accessGH().loadUiGameView(PSYCHOLOGIST_TURN);
+//        this->accessGH().changeUiView(PSYCHOLOGIST_TURN);
+//    }
 }

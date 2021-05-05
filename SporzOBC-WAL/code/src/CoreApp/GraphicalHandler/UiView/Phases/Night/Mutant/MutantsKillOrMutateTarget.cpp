@@ -19,6 +19,7 @@ MutantsKillOrMutateTarget::MutantsKillOrMutateTarget(QWidget *parent)
 }
 
 void MutantsKillOrMutateTarget::showUi() {
+    this->fillComboBox();
     this->show();
 }
 
@@ -41,4 +42,19 @@ void MutantsKillOrMutateTarget::hideUi() {
 void MutantsKillOrMutateTarget::on_nextButton_clicked() {
     this->accessGH().loadUiGameView(MUTANT_PARALYSIS_TARGET);
     this->accessGH().changeUiView(MUTANT_PARALYSIS_TARGET);
+}
+
+void MutantsKillOrMutateTarget::fillComboBox() {
+    auto &glm = this->accessGLM();
+    auto possibleTargets = glm.getAlivePlayersTargetedByRole(MUTANT);
+    QStringList names;
+
+    for (auto &target : possibleTargets)
+        names.push_back((target->getUserName()).c_str());
+    this->ui->selectTarget->addItems(names);
+}
+
+void MutantsKillOrMutateTarget::on_selectTarget_currentTextChanged(const QString &text) {
+    std::string username = text.toUtf8().constData();
+    this->accessGLM().setMutantsChoiceTarget(this->accessGLM().getAlivePlayerIDByName(username));
 }

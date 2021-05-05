@@ -164,12 +164,40 @@ bool GameLogicManager::isTurnPassed(Role role) {
     return this->_turns[role];
 }
 
-std::vector<const Player*> GameLogicManager::getAlivePlayersWithRole(Role role) {
+std::vector<const Player*> GameLogicManager::getAlivePlayersAssociatedWithRole(Role roleCalled) {
     std::vector<const Player*> targetedPlayers;
 
     for (Player& player: this->_players) {
-        if (player.getRole() == role && player.isAlive()) {
+        if (!player.isAlive())
+            continue;
+        Role pRole = player.getRole();
+        if ((roleCalled == MUTANT && (pRole == MUTANT || player.isIll())) || (pRole == roleCalled && !player.isIll()))
             targetedPlayers.emplace_back(&player);
+    }
+    return targetedPlayers;
+}
+
+std::vector<const Player*> GameLogicManager::getAlivePlayersTargetedByRole(Role roleCalled) {
+    std::vector<const Player*> targetedPlayers;
+
+    for (Player& player: this->_players) {
+        if (!player.isAlive())
+            continue;
+        Role pRole = player.getRole();
+        switch (roleCalled) {
+            case HACKER:
+            case NOVICE_HACKER:
+                if (pRole == PSYCHOLOGIST || pRole == GENETICIST || pRole == COMPUTER_SCIENTIST)
+                    targetedPlayers.emplace_back(&player);
+                break;
+            case MUTANT:
+                if (pRole != MUTANT && !player.isIll())
+                    targetedPlayers.emplace_back(&player);
+                break;
+            default:
+                if (pRole != roleCalled || (pRole == roleCalled && player.isIll()))
+                    targetedPlayers.emplace_back(&player);
+                break;
         }
     }
     return targetedPlayers;
@@ -178,10 +206,73 @@ std::vector<const Player*> GameLogicManager::getAlivePlayersWithRole(Role role) 
 const Player &GameLogicManager::getAlivePlayerById(size_t ID) {
     if (this->playerCount >= ID) {
         for (Player& player: this->_players) {
-            if (player.getID() == ID) {
+            if (player.getID() == ID && player.isAlive()) {
                 return player;
             }
         }
     }
-    throw GameLogicManagerException("id of player is invalid", "assignChief", PLAYER_ID_INVALID);
+    throw GameLogicManagerException("id of player is invalid or player is dead", "assignChief", PLAYER_ID_INVALID);
+}
+
+size_t GameLogicManager::getAlivePlayerIDByName(const std::string &nameToFind) {
+    for (Player& player: this->_players) {
+        if (player.getUserName() == nameToFind && player.isAlive()) {
+            return player.getID();
+        }
+    }
+    throw GameLogicManagerException("cannot find alive player with name " + nameToFind, "assignChief", PLAYER_NAME_INVALID);
+}
+
+void GameLogicManager::setMutantChoice(ActionType actionType) {
+    if (actionType == MUTATION || actionType == KILLING) {
+        this->mutantChoice = actionType;
+    } else {
+        throw GameLogicManagerException("Wrong action type choice for mutants : they can only choose to kill or mutate target", "setMutantChoice");
+    }
+}
+
+bool GameLogicManager::killBy(Role role) {
+    bool result = false;
+
+    if (role == MUTANT) {
+        result = this->getPlayerInstance(this->mutantChoiceTarget, "kill").kill();
+    } else if (role == DOCTOR) {
+        result = this->getPlayerInstance(this->doctorTargets[0], "kill").kill();
+    }
+    return result;
+}
+
+bool GameLogicManager::mutate() {
+    bool result = this->getPlayerInstance(this->mutantChoiceTarget, "mutate").mutate();
+    return result;
+}
+
+bool GameLogicManager::paralyze() {
+    bool result = this->getPlayerInstance(this->mutantChoiceTarget, "paralyze").paralyze();
+    return result;
+}
+
+std::map<size_t, bool> GameLogicManager::heals() {
+    auto aliveDoctors = getAlivePlayersAssociatedWithRole(DOCTOR);
+    std::map<size_t, bool> heals;
+
+    for (auto &doctor : aliveDoctors)
+        heals[doctor->getID()] = this->getPlayerInstance(this->doctorTargets[doctor->getID()], "heals").heal();
+    return heals;
+}
+
+void GameLogicManager::setDoctorsChoiceTargets(size_t initiator, size_t target) {
+    this->doctorTargets[initiator] = target;
+}
+
+void GameLogicManager::setMutantsChoiceTarget(size_t ID) {
+    this->mutantChoiceTarget = ID;
+}
+
+void GameLogicManager::setMutantsParalysisTarget(size_t ID) {
+    this->mutantParalysisTarget = ID;
+}
+
+size_t GameLogicManager::getMutantsChoiceTarget() {
+    return this->mutantChoiceTarget;
 }

@@ -40,6 +40,6 @@ void GeneticistResult::hideUi() {
 
 void GeneticistResult::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(GENETICIST);
-    this->accessGH().loadUiGameView(GENETICIST_TURN);
-    this->accessGH().changeUiView(GENETICIST_TURN);
+    this->accessGH().loadUiGameView(PSYCHOLOGIST_TURN);
+    this->accessGH().changeUiView(PSYCHOLOGIST_TURN);
 }

@@ -19,6 +19,7 @@ MutantsParalysisTarget::MutantsParalysisTarget(QWidget *parent)
 }
 
 void MutantsParalysisTarget::showUi() {
+    this->fillComboBox();
     this->show();
 }
 
@@ -40,6 +41,25 @@ void MutantsParalysisTarget::hideUi() {
 
 void MutantsParalysisTarget::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(MUTANT);
-    this->accessGH().loadUiGameView(MUTANTS_TURN);
-    this->accessGH().changeUiView(MUTANTS_TURN);
+    this->accessGH().loadUiGameView(MUTANTS_RECAP);
+    this->accessGH().changeUiView(MUTANTS_RECAP);
+}
+
+
+void MutantsParalysisTarget::fillComboBox() {
+    auto &glm = this->accessGLM();
+    auto possibleTargets = glm.getAlivePlayersTargetedByRole(MUTANT);
+    size_t lastIDToExclude = glm.getMutantsChoiceTarget();
+    QStringList names;
+
+    for (auto &target : possibleTargets) {
+        if (target->getID() != lastIDToExclude)
+            names.push_back((target->getUserName()).c_str());
+    }
+    this->ui->selectTarget->addItems(names);
+}
+
+void MutantsParalysisTarget::on_selectTarget_currentTextChanged(const QString &text) {
+    std::string username = text.toUtf8().constData();
+    this->accessGLM().setMutantsParalysisTarget((this->accessGLM().getAlivePlayerIDByName(username)));
 }

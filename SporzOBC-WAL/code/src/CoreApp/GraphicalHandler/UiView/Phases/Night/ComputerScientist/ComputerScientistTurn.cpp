@@ -39,11 +39,7 @@ void ComputerScientistTurn::hideUi() {
 }
 
 void ComputerScientistTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(COMPUTER_SCIENTIST)) {
-        this->accessGH().loadUiGameView(COMPUTER_SCIENTIST_RESULT);
-        this->accessGH().changeUiView(COMPUTER_SCIENTIST_RESULT);
-    } else {
-        this->accessGH().loadUiGameView(GENETICIST_TURN);
-        this->accessGH().changeUiView(GENETICIST_TURN);
-    }
+//    if (!this->accessGLM().isTurnPassed(COMPUTER_SCIENTIST)) {
+    this->accessGH().loadUiGameView(COMPUTER_SCIENTIST_RESULT);
+    this->accessGH().changeUiView(COMPUTER_SCIENTIST_RESULT);
 }

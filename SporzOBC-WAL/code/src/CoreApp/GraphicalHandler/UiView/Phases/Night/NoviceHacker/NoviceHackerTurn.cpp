@@ -39,14 +39,8 @@ void NoviceHackerTurn::hideUi() {
 }
 
 void NoviceHackerTurn::on_nextButton_clicked() {
-    if (!this->accessGLM().isTurnPassed(NOVICE_HACKER)) {
-        this->accessGH().loadUiGameView(NOVICE_HACKER_TARGET);
-        this->accessGH().changeUiView(NOVICE_HACKER_TARGET);
-    } else if (this->accessGLM().getPlayerCount() > 8) {
-        this->accessGH().loadUiGameView(SPY_TURN);
-        this->accessGH().changeUiView(SPY_TURN);
-    } else {
-        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
-        this->accessGH().changeUiView(MORNING_WAKING_UP);
-    }
+//    if (!this->accessGLM().isTurnPassed(NOVICE_HACKER)) {
+    this->accessGH().loadUiGameView(NOVICE_HACKER_TARGET);
+    this->accessGH().changeUiView(NOVICE_HACKER_TARGET);
+//    } else
 }

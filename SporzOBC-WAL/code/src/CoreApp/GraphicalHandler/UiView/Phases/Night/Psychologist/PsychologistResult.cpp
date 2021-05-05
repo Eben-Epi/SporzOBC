@@ -40,6 +40,11 @@ void PsychologistResult::hideUi() {
 
 void PsychologistResult::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(PSYCHOLOGIST);
-    this->accessGH().loadUiGameView(PSYCHOLOGIST_TURN);
-    this->accessGH().changeUiView(PSYCHOLOGIST_TURN);
+    if (this->accessGLM().getPlayerCount() > 6) {
+        this->accessGH().loadUiGameView(HACKER_TURN);
+        this->accessGH().changeUiView(HACKER_TURN);
+    } else {
+        this->accessGH().loadUiGameView(MORNING_WAKING_UP);
+        this->accessGH().changeUiView(MORNING_WAKING_UP);
+    }
 }

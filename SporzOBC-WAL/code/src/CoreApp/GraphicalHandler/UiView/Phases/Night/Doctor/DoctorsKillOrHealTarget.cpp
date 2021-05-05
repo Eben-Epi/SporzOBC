@@ -40,6 +40,6 @@ void DoctorsKillOrHealTarget::hideUi() {
 
 void DoctorsKillOrHealTarget::on_nextButton_clicked() {
     this->accessGLM().setTurnPassed(DOCTOR);
-    this->accessGH().loadUiGameView(DOCTORS_TURN);
-    this->accessGH().changeUiView(DOCTORS_TURN);
+    this->accessGH().loadUiGameView(DOCTORS_RECAP);
+    this->accessGH().changeUiView(DOCTORS_RECAP);
 }

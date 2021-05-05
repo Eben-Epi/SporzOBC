@@ -15,9 +15,10 @@
 
 //! Types d'actions possibles subies par les joueurs
 enum ActionType {
+    NO_ACTION,
     PARALYZED, /*!< Tentative de paralysie par un mutant */
-    KILLED, /*!< Mort occasionée par les mutants ou les médecins */
-    MUTATED, /*!< Tentative de mutations par les mutants */
+    KILLING, /*!< Mort occasionée par les mutants ou les médecins */
+    MUTATION, /*!< Tentative de mutations par les mutants */
     HEALED, /*!< Tentative de heal par les médecins */
     DIAGNOSED, /*!< A été diagnostiqué par le psychologue */
     TESTED, /*!< A été testé par le généticien */
