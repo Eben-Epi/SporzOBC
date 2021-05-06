@@ -99,7 +99,7 @@ QPushButton  {
         </spacer>
        </item>
        <item alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="awakeOrSleepQuote">
+        <widget class="QLabel" name="awakeQuote">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -134,7 +134,7 @@ QPushButton  {
         </widget>
        </item>
        <item alignment="Qt::AlignHCenter">
-        <widget class="QLabel" name="awakeOrSleepHelp">
+        <widget class="QLabel" name="awakeHelp">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
