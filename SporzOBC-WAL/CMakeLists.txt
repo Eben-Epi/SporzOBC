@@ -18,13 +18,15 @@ file(GLOB_RECURSE SOURCES_CPP ${PROJECT_SOURCE_DIR}/code/src/*.cpp)
 file(GLOB_RECURSE SOURCES_HPP ${PROJECT_SOURCE_DIR}/code/include/*.hpp)
 file(GLOB_RECURSE SOURCES_H ${PROJECT_SOURCE_DIR}/code/include/*.h)
 
+qt5_add_resources(UI_RESOURCES ${PROJECT_SOURCE_DIR}/code/resources/assets.qrc)
+
 include_directories(${PROJECT_SOURCE_DIR}/code/include)
 
 if(ANDROID)
-  add_library(SporzOBC-WAL SHARED ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H}
+  add_library(SporzOBC-WAL SHARED ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H} ${UI_RESOURCES}
         )
 else()
-  add_executable(SporzOBC-WAL ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H}
+  add_executable(SporzOBC-WAL ${SOURCES_CPP} ${SOURCES_HPP} ${SOURCES_H} ${UI_RESOURCES}
         )
 endif()
 

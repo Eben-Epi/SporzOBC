@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/NoviceHacker/ui_turn.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/NoviceHacker/NoviceHackerTurn.hpp"
 
@@ -19,6 +20,7 @@ NoviceHackerTurn::NoviceHackerTurn(QWidget *parent)
 }
 
 void NoviceHackerTurn::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Psychologist/ui_result.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Psychologist/PsychologistResult.hpp"
 
@@ -19,6 +20,7 @@ PsychologistResult::PsychologistResult(QWidget *parent)
 }
 
 void PsychologistResult::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

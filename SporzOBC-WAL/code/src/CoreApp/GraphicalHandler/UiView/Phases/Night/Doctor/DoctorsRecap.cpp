@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Doctor/ui_recap.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Doctor/DoctorsRecap.hpp"
 
@@ -19,6 +20,7 @@ DoctorsRecap::DoctorsRecap(QWidget *parent)
 }
 
 void DoctorsRecap::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

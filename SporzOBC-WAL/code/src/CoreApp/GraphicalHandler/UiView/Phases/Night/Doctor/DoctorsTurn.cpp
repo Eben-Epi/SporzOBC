@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Doctor/ui_turn.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Doctor/DoctorsTurn.hpp"
 
@@ -19,6 +20,7 @@ DoctorsTurn::DoctorsTurn(QWidget *parent)
 }
 
 void DoctorsTurn::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

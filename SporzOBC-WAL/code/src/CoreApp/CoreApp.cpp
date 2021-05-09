@@ -9,8 +9,8 @@
 
 #include "CoreApp/CoreApp.hpp"
 
-CoreApp::CoreApp() {
-    initGraphicalHandler();
+CoreApp::CoreApp(int argc, char **argv) {
+    initGraphicalHandler(argc, argv);
     this->_graphicalHandler->loadUiView(MAIN_MENU);
     this->_graphicalHandler->changeUiView(MAIN_MENU);
 }
@@ -30,8 +30,8 @@ void CoreApp::initGameLogicManager() {
     this->_gameLogicManager = std::make_unique<GameLogicManager>();
 }
 
-void CoreApp::initGraphicalHandler() {
-    this->_graphicalHandler = std::make_unique<GraphicalHandler>(*this);
+void CoreApp::initGraphicalHandler(int argc, char **argv) {
+    this->_graphicalHandler = std::make_unique<GraphicalHandler>(*this, argc, argv);
 }
 
 std::unique_ptr<IGraphicalHandler> const &CoreApp::getIGraphicalHandlerInstance() {
@@ -39,4 +39,8 @@ std::unique_ptr<IGraphicalHandler> const &CoreApp::getIGraphicalHandlerInstance(
         return this->_graphicalHandler;
     else
         throw SporzException("GraphicalHandler is not initialized, initGraphicalHandler has not been called or failed", "play");
+}
+
+int CoreApp::graphicalHandlerReturnCode() {
+    return (static_cast<GraphicalHandler*>(this->_graphicalHandler.get())->appExec());
 }

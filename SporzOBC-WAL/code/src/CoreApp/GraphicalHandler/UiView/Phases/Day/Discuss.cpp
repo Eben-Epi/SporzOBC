@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Day/ui_discuss.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Day/Discuss.hpp"
 
@@ -19,6 +20,7 @@ Discuss::Discuss(QWidget *parent)
 }
 
 void Discuss::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

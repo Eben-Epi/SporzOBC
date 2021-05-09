@@ -8,6 +8,8 @@
 */
 
 #include <QDebug>
+#include <QFontDatabase>
+#include <QFile>
 #include "CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp"
 
 void GraphicalHandler::changeUiView(UiViews page) {
@@ -37,4 +39,24 @@ void GraphicalHandler::loadUiGameView(UiViews page) {
     }
     else
         qDebug("This game view (%d) is already loaded. Fetch will be handled by cache.", page);
+}
+
+GraphicalHandler::GraphicalHandler(CoreApp &coreApp, int argc, char**argv) : _coreApp(coreApp), currentView(NO_VIEW), _app(argc, argv) {
+    QFontDatabase::addApplicationFont(":/fonts/quote");
+    QFontDatabase::addApplicationFont(":/fonts/helper");
+    QFontDatabase db;
+
+    auto stylesheet = QFile(":/styles/global_app");
+    stylesheet.open(QFile::ReadOnly);
+
+    // Apply the loaded stylesheet
+    this->globalStyleSheet = (stylesheet.readAll());
+}
+
+int GraphicalHandler::appExec() {
+   return this->_app.exec();
+}
+
+const QString &GraphicalHandler::getGlobalStyleSheet() {
+    return (this->globalStyleSheet);
 }

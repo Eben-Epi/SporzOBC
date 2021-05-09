@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Hacker/ui_target.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Hacker/HackerTarget.hpp"
 
@@ -19,6 +20,7 @@ HackerTarget::HackerTarget(QWidget *parent)
 }
 
 void HackerTarget::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

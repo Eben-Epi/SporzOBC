@@ -5,10 +5,10 @@
 int main(int argc, char **argv)
 {
     try {
-        QApplication app(argc, argv);
-        CoreApp appSporz;
-        return app.exec();
+        CoreApp appSporz(argc, argv);
+        return appSporz.graphicalHandlerReturnCode();
     } catch (SporzException& e) {
         std::cout << e.what();
+        return -1;
     }
 }

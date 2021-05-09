@@ -14,6 +14,7 @@ class CoreApp;
 
 #include "CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp"
 #include "GameLogicManager/GameLogicManager.hpp"
+#include <QApplication>
 
     //! CoreApp
     /*!
@@ -25,9 +26,11 @@ class CoreApp;
     */
     class CoreApp {
     public:
-        CoreApp();
+        CoreApp(int argc, char **argv);
 
         ~CoreApp();
+
+        int graphicalHandlerReturnCode();
 
         //! Afin d'utiliser le gameLogicManager, on récupère une instance de manière sécurisée
         std::unique_ptr<GameLogicManager> const &getGameLogicManagerInstance();
@@ -38,7 +41,7 @@ class CoreApp;
         //! Initialization du gameLogicManager
         void initGameLogicManager();
 
-        void initGraphicalHandler();
+        void initGraphicalHandler(int argc, char **argv);
 
     private:
         //! \sa GameLogicManager

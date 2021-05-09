@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./ui_elect_chief.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/ElectChief.hpp"
 
@@ -19,6 +20,7 @@ ElectChief::ElectChief(QWidget *parent)
 }
 
 void ElectChief::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->fillComboBox();
     this->show();
 }

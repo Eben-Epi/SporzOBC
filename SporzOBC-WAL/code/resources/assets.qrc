@@ -1,0 +1,51 @@
+<RCC>
+    <qresource prefix="/fonts">
+        <file alias="helper">assets/fonts/BebasNeue-Regular.ttf</file>
+        <file alias="quote">assets/fonts/Imbue-Regular.ttf</file>
+    </qresource>
+    <qresource prefix="/img/ui/day">
+        <file alias="arrow">assets/ui/UI_Sporz_Day_Arrow.png</file>
+        <file alias="faded_arrow">assets/ui/UI_Sporz_Day_Arrow_Op50.png</file>
+    </qresource>
+    <qresource prefix="/img/ui/night">
+        <file alias="arrow">assets/ui/UI_Sporz_Night_Arrow.png</file>
+        <file alias="faded_arrow">assets/ui/UI_Sporz_Night_Arrow_Op50.png</file>
+        <file alias="borderbox.png">assets/ui/UI_Sporz_Night_TextBoxBorder.png</file>
+        <file alias="borderbox_reversed.png">assets/ui/UI_Sporz_Night_TextBoxBorderReversed.png</file>
+    </qresource>
+    <qresource prefix="/img/ui">
+        <file alias="select">assets/ui/UI_Sporz_Rectangle.png</file>
+        <file alias="choice_checked">assets/ui/UI_Sporz_Round_Select.png</file>
+        <file alias="choice_unchecked">assets/ui/UI_Sporz_Round_Unselect.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/doctor">
+        <file alias="icon">assets/turns/UI_Doc.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/mutant">
+        <file alias="icon">assets/turns/UI_Mutants.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/hacker">
+        <file alias="icon">assets/turns/UI_Hacker.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/novice_hacker">
+        <file alias="icon">assets/turns/UI_A_Hacker.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/geneticist">
+        <file alias="icon">assets/turns/UI_Geneticien.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/psychologist">
+        <file alias="icon">assets/turns/UI_Psychologue.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/computer_scientist">
+        <file alias="icon">assets/turns/UI_Informaticien.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/spy">
+        <file alias="icon">assets/turns/UI_Espion.png</file>
+    </qresource>
+    <qresource prefix="/img/arts/painter">
+        <file alias="icon">assets/turns/UI_Peintre.png</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file alias="global_app">stylesheet.qss</file>
+    </qresource>
+</RCC>

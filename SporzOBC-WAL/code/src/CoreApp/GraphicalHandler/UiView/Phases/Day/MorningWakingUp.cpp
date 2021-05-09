@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Day/ui_morning_waking_up.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Day/MorningWakingUp.hpp"
 
@@ -19,6 +20,7 @@ MorningWakingUp::MorningWakingUp(QWidget *parent)
 }
 
 void MorningWakingUp::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

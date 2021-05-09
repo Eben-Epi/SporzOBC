@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Mutant/ui_recap.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Mutant/MutantsRecap.hpp"
 
@@ -19,6 +20,7 @@ MutantsRecap::MutantsRecap(QWidget *parent)
 }
 
 void MutantsRecap::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

@@ -241,3 +241,8 @@ compile_commands.json
 documentation/html*
 documentation/latex*
 # End of https://www.toptal.com/developers/gitignore/api/clion,jetbrains,qt,qtcreator
+/DMS15R/
+/DMinGWR/
+/MAClangR/
+/MAClangD/
+/MAClangRmin/

@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/ui_evening_bed_time.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Day/EveningBedTime.hpp"
 
@@ -19,6 +20,7 @@ EveningBedTime::EveningBedTime(QWidget *parent)
 }
 
 void EveningBedTime::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

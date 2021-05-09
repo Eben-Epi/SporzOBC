@@ -11,6 +11,7 @@
 #include <CoreApp/IGraphicalHandler/Widgets/GameTable/GameTable.hpp>
 #include <CoreApp/IGraphicalHandler/Widgets/GameTable/GameInformationModel.hpp>
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/GameInformation.hpp"
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./ui_game_information.h"
 
 
@@ -21,6 +22,7 @@ GameInformation::GameInformation(QWidget *parent)
 }
 
 void GameInformation::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     auto gameTable = static_cast<GameInformationModel*>(this->ui->gameTable->model());
     gameTable->setGLM(this->accessGLM());
 

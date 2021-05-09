@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Day/ui_voting_phase_target.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Day/VotingPhaseTarget.hpp"
 
@@ -19,6 +20,7 @@ VotingPhaseTarget::VotingPhaseTarget(QWidget *parent)
 }
 
 void VotingPhaseTarget::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

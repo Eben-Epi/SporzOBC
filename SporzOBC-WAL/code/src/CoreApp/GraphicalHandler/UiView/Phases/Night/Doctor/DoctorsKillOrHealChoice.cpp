@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Doctor/ui_kill_or_heal_choice.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Doctor/DoctorsKillOrHealChoice.hpp"
 
@@ -19,6 +20,7 @@ DoctorsKillOrHealChoice::DoctorsKillOrHealChoice(QWidget *parent)
 }
 
 void DoctorsKillOrHealChoice::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

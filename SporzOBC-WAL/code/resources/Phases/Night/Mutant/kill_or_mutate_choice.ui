@@ -13,33 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#MutantsKillOrMutateChoice {
-    background-color: rgb(58, 58, 58);;
-    }
-
-QLabel {
-	color:white;
-}
-
-QPushButton  {
-	border: none;
-    background-color: rgb(58, 58, 58);
-    padding: 10px 10px;
-    font-size: 32px;
-	color:white;
-    border-radius: 50px;
-}
-QPushButton:checked {
-	border: 2px solid white;
-}
-#nextButton {
-border: 2px solid white;
-}
-#nextButton:disabled{
-border: 2px solid rgba(255, 255, 255, 50);
-color: rgba(255, 255, 255, 50);
-}</string>
+  <property name="styleSheet"><string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

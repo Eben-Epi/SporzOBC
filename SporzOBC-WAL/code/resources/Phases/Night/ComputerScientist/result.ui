@@ -13,23 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">#ComputerScientistResult {
-    background-color: rgb(58, 58, 58);;
-    }
-
-QLabel {
-	color:white;
-}
-
-QPushButton  {
-    border: 2px solid white;
-    background-color: rgb(58, 58, 58);
-    padding: 10px 10px;
-    font-size: 32px;
-	color:white;
-    border-radius: 50px;
-}</string>
+  <property name="styleSheet"><string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">

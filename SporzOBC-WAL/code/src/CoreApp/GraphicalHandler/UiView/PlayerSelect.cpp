@@ -9,6 +9,7 @@
 
 #include <QMessageBox>
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/PlayerSelect.hpp"
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./ui_player_select.h"
 
 PlayerSelect::PlayerSelect(QWidget *parent)
@@ -18,6 +19,7 @@ PlayerSelect::PlayerSelect(QWidget *parent)
 }
 
 void PlayerSelect::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->ui->playerCountSpinBox->setValue(this->accessGLM().getPlayerCount());
     this->ui->playerCountSpinBox->setRange(MIN_PLAYER_SIZE, MAX_PLAYER_SIZE);
     this->show();

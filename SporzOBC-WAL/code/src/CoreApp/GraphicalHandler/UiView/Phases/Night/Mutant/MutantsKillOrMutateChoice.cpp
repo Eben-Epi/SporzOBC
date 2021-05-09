@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Mutant/ui_kill_or_mutate_choice.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Mutant/MutantsKillOrMutateChoice.hpp"
 
@@ -19,6 +20,7 @@ MutantsKillOrMutateChoice::MutantsKillOrMutateChoice(QWidget *parent)
 }
 
 void MutantsKillOrMutateChoice::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->ui->nextButton->setDisabled(true);
     this->show();
 }

@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Spy/ui_turn.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Spy/SpyTurn.hpp"
 
@@ -19,6 +20,7 @@ SpyTurn::SpyTurn(QWidget *parent)
 }
 
 void SpyTurn::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

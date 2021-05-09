@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/ComputerScientist/ui_result.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/ComputerScientist/ComputerScientistResult.hpp"
 
@@ -19,6 +20,7 @@ ComputerScientistResult::ComputerScientistResult(QWidget *parent)
 }
 
 void ComputerScientistResult::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 

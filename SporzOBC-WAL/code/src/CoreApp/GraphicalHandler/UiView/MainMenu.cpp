@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
+#include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./ui_main_menu.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/MainMenu.hpp"
 
@@ -19,6 +20,7 @@ MainMenu::MainMenu(QWidget *parent)
 }
 
 void MainMenu::showUi() {
+    this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->show();
 }
 
