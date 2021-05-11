@@ -5,7 +5,7 @@
     background-color: #191918;
 }
 
-#awakeQuote {
+#awakeQuoteNight {
     color: #191918;
     font: 20pt 'Imbue';
     font-weight: lighter;
@@ -13,18 +13,31 @@
     background-color: #e9e9e0;
 }
 
+#nextNightButton {
+    border-image: url(":/img/ui/night/arrow");
+}
+
 HelperText {
     color: #e9e9e0;
     font: 18pt 'Bebas Neue';
 }
 
-QPushButton  {
-    border: 2px solid black;
-    background-color: white;
-    padding: 14px 28px;
-    font-size: 35px;
-    border-radius: 100%;
+ArrowQuote {
+    border-image: url(":/img/ui/night/quote_box_arrow");
 }
+
+ReversedArrowQuote {
+    border-image: url(":/img/ui/night/quote_box_arrow_reversed");
+}
+
+LineQuote {
+    border-image: url(":/img/ui/night/quote_box_line");
+}
+
+ReversedLineQuote {
+    border-image: url(":/img/ui/night/quote_box_line_reversed");
+}
+
 
 QPushButton#playButton {
     border-color: #2196F3;

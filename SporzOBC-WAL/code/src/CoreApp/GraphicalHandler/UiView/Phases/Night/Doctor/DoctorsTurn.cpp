@@ -40,7 +40,7 @@ void DoctorsTurn::hideUi() {
     this->hide();
 }
 
-void DoctorsTurn::on_nextButton_clicked() {
+void DoctorsTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(DOCTOR)) {
     this->accessGH().loadUiGameView(DOCTORS_KILL_OR_HEAL_CHOICE);
     this->accessGH().changeUiView(DOCTORS_KILL_OR_HEAL_CHOICE);

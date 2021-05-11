@@ -31,7 +31,7 @@ public:
     static UiViews GetFactoryName();
 
 private slots:
-    void on_nextButton_clicked();
+    void on_nextNightButton_clicked();
 
 private:
     Ui::NoviceHackerTarget *ui;

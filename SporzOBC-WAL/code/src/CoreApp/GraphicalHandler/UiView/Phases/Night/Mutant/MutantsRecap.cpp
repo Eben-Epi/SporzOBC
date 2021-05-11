@@ -40,7 +40,7 @@ void MutantsRecap::hideUi() {
     this->hide();
 }
 
-void MutantsRecap::on_nextButton_clicked() {
+void MutantsRecap::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(DOCTORS_TURN);
     this->accessGH().changeUiView(DOCTORS_TURN);
 }

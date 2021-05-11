@@ -40,7 +40,7 @@ void NoviceHackerTurn::hideUi() {
     this->hide();
 }
 
-void NoviceHackerTurn::on_nextButton_clicked() {
+void NoviceHackerTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(NOVICE_HACKER)) {
     this->accessGH().loadUiGameView(NOVICE_HACKER_TARGET);
     this->accessGH().changeUiView(NOVICE_HACKER_TARGET);

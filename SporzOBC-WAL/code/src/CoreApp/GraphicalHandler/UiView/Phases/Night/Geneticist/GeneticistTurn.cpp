@@ -40,7 +40,7 @@ void GeneticistTurn::hideUi() {
     this->hide();
 }
 
-void GeneticistTurn::on_nextButton_clicked() {
+void GeneticistTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(GENETICIST)) {
         this->accessGH().loadUiGameView(GENETICIST_TARGET);
         this->accessGH().changeUiView(GENETICIST_TARGET);

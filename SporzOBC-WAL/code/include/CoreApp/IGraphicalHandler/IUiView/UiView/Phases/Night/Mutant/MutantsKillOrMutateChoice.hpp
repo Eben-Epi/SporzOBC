@@ -32,7 +32,7 @@ public:
     static UiViews GetFactoryName();
 
 private slots:
-    void on_nextButton_clicked();
+    void on_nextNightButton_clicked();
     void on_choice_buttonToggled(QAbstractButton *button, bool checked);
 
 private:

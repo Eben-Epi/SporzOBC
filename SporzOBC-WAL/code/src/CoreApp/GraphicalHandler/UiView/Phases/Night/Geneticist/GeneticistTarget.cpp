@@ -40,7 +40,7 @@ void GeneticistTarget::hideUi() {
     this->hide();
 }
 
-void GeneticistTarget::on_nextButton_clicked() {
+void GeneticistTarget::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(GENETICIST_RESULT);
     this->accessGH().changeUiView(GENETICIST_RESULT);
 }

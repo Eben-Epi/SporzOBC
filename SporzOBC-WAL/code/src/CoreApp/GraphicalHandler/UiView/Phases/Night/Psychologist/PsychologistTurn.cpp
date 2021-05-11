@@ -40,7 +40,7 @@ void PsychologistTurn::hideUi() {
     this->hide();
 }
 
-void PsychologistTurn::on_nextButton_clicked() {
+void PsychologistTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(PSYCHOLOGIST)) {
         this->accessGH().loadUiGameView(PSYCHOLOGIST_TARGET);
         this->accessGH().changeUiView(PSYCHOLOGIST_TARGET);

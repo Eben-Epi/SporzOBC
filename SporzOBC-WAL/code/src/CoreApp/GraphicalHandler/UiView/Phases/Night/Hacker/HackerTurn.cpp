@@ -40,7 +40,7 @@ void HackerTurn::hideUi() {
     this->hide();
 }
 
-void HackerTurn::on_nextButton_clicked() {
+void HackerTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(HACKER)) {
         this->accessGH().loadUiGameView(HACKER_TARGET);
         this->accessGH().changeUiView(HACKER_TARGET);

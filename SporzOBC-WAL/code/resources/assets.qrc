@@ -10,8 +10,10 @@
     <qresource prefix="/img/ui/night">
         <file alias="arrow">assets/ui/UI_Sporz_Night_Arrow.png</file>
         <file alias="faded_arrow">assets/ui/UI_Sporz_Night_Arrow_Op50.png</file>
-        <file alias="borderbox.png">assets/ui/UI_Sporz_Night_TextBoxBorder.png</file>
-        <file alias="borderbox_reversed.png">assets/ui/UI_Sporz_Night_TextBoxBorderReversed.png</file>
+        <file alias="quote_box_line">assets/ui/UI_Sporz_Night_Text_Line.png</file>
+        <file alias="quote_box_arrow">assets/ui/UI_Sporz_Night_Text_Arrow.png</file>
+        <file alias="quote_box_arrow_reversed">assets/ui/UI_Sporz_Night_Text_Arrow_Reversed.png</file>
+        <file alias="quote_box_line_reversed">assets/ui/UI_Sporz_Night_Text_Line_Reserved.png</file>
     </qresource>
     <qresource prefix="/img/ui">
         <file alias="select">assets/ui/UI_Sporz_Rectangle.png</file>

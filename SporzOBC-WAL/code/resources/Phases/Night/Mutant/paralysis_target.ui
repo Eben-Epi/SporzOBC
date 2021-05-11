@@ -13,12 +13,13 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <property name="styleSheet"><string notr="true"/>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item alignment="Qt::AlignHCenter">
+     <item>
       <widget class="QLabel" name="label">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -130,7 +131,7 @@
          </property>
         </spacer>
        </item>
-       <item alignment="Qt::AlignHCenter">
+       <item>
         <widget class="QComboBox" name="selectTarget">
          <property name="minimumSize">
           <size>

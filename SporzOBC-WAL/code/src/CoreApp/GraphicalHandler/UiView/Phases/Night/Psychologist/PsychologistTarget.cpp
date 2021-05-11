@@ -40,7 +40,7 @@ void PsychologistTarget::hideUi() {
     this->hide();
 }
 
-void PsychologistTarget::on_nextButton_clicked() {
+void PsychologistTarget::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(PSYCHOLOGIST_RESULT);
     this->accessGH().changeUiView(PSYCHOLOGIST_RESULT);
 }

@@ -61,7 +61,7 @@ void MutantsTurn::hideUi() {
     this->hide();
 }
 
-void MutantsTurn::on_nextButton_clicked() {
+void MutantsTurn::on_nextNightButton_clicked() {
     if (!this->accessGLM().isTurnPassed(MUTANT)) {
         this->accessGLM().setTurnPassed(MUTANT);
 //        this->ui->aliveMutants->setText("azoiajzoiajzoijazoijazio zaoijazi oza ijzji  jiozji ozji ozji o jioazj ioazj ioza jio jiozaj ioazij oa joaij IIIIIIIII X");

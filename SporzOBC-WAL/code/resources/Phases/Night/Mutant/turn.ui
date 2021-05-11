@@ -127,30 +127,89 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="bottomBox">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="spacing">
+            <number>0</number>
            </property>
-           <property name="font">
-            <font>
-             <family>Bebas Neue</family>
-             <pointsize>18</pointsize>
-             <weight>50</weight>
-             <italic>false</italic>
-             <bold>false</bold>
-             <kerning>true</kerning>
-            </font>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
+           <item>
+            <widget class="LineQuote" name="topLeftLine">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ArrowQuote" name="topArrow">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="LineQuote" name="topRightLine">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <widget class="QLabel" name="awakeQuote">
+          <widget class="QLabel" name="awakeQuoteNight">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -187,17 +246,86 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="topBox">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>0</number>
            </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
+           <item>
+            <widget class="ReversedLineQuote" name="bottomLeftLine">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ReversedArrowQuote" name="bottomArrow">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ReversedLineQuote" name="bottomRightLine">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
@@ -347,7 +475,7 @@
     </layout>
    </item>
    <item alignment="Qt::AlignRight">
-    <widget class="QPushButton" name="nextButton">
+    <widget class="QPushButton" name="nextNightButton">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -361,7 +489,7 @@
       </size>
      </property>
      <property name="text">
-      <string>Next</string>
+      <string/>
      </property>
     </widget>
    </item>
@@ -372,6 +500,26 @@
    <class>HelperText</class>
    <extends>QLabel</extends>
    <header>CoreApp/IGraphicalHandler/Widgets/HelperText/HelperText.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>ArrowQuote</class>
+   <extends>QLabel</extends>
+   <header>CoreApp/IGraphicalHandler/Widgets/QuoteBox/ArrowQuote.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>LineQuote</class>
+   <extends>QLabel</extends>
+   <header>CoreApp/IGraphicalHandler/Widgets/QuoteBox/LineQuote.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>ReversedLineQuote</class>
+   <extends>QLabel</extends>
+   <header>CoreApp/IGraphicalHandler/Widgets/QuoteBox/ReversedLineQuote.hpp</header>
+  </customwidget>
+  <customwidget>
+   <class>ReversedArrowQuote</class>
+   <extends>QLabel</extends>
+   <header>CoreApp/IGraphicalHandler/Widgets/QuoteBox/ReversedArrowQuote.hpp</header>
   </customwidget>
  </customwidgets>
  <resources/>

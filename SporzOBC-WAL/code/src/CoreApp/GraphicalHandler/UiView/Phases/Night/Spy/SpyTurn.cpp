@@ -40,7 +40,7 @@ void SpyTurn::hideUi() {
     this->hide();
 }
 
-void SpyTurn::on_nextButton_clicked() {
+void SpyTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(SPY)) {
     this->accessGH().loadUiGameView(SPY_TARGET);
     this->accessGH().changeUiView(SPY_TARGET);

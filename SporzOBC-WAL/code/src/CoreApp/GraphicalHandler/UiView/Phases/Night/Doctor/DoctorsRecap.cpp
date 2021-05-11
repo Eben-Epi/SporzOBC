@@ -40,7 +40,7 @@ void DoctorsRecap::hideUi() {
     this->hide();
 }
 
-void DoctorsRecap::on_nextButton_clicked() {
+void DoctorsRecap::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(COMPUTER_SCIENTIST_TURN);
     this->accessGH().changeUiView(COMPUTER_SCIENTIST_TURN);
 }

@@ -40,7 +40,7 @@ void PainterTurn::hideUi() {
     this->hide();
 }
 
-void PainterTurn::on_nextButton_clicked() {
+void PainterTurn::on_nextNightButton_clicked() {
 //    if (!this->accessGLM().isTurnPassed(PAINTER)) {
     this->accessGH().loadUiGameView(PAINTER_TARGET);
     this->accessGH().changeUiView(PAINTER_TARGET);

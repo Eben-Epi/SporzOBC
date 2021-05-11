@@ -41,7 +41,7 @@ void MutantsKillOrMutateChoice::hideUi() {
     this->hide();
 }
 
-void MutantsKillOrMutateChoice::on_nextButton_clicked() {
+void MutantsKillOrMutateChoice::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(MUTANTS_KILL_OR_MUTATE_TARGET);
     this->accessGH().changeUiView(MUTANTS_KILL_OR_MUTATE_TARGET);
 }

@@ -40,7 +40,7 @@ void NoviceHackerResult::hideUi() {
     this->hide();
 }
 
-void NoviceHackerResult::on_nextButton_clicked() {
+void NoviceHackerResult::on_nextNightButton_clicked() {
     this->accessGLM().setTurnPassed(NOVICE_HACKER);
     if (this->accessGLM().getPlayerCount() > 8) {
         this->accessGH().loadUiGameView(SPY_TURN);

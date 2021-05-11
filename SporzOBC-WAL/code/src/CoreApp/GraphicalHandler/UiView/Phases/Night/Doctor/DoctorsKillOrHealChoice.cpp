@@ -40,7 +40,7 @@ void DoctorsKillOrHealChoice::hideUi() {
     this->hide();
 }
 
-void DoctorsKillOrHealChoice::on_nextButton_clicked() {
+void DoctorsKillOrHealChoice::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(DOCTORS_KILL_OR_HEAL_TARGET);
     this->accessGH().changeUiView(DOCTORS_KILL_OR_HEAL_TARGET);
 }

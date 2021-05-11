@@ -40,7 +40,7 @@ void SpyTarget::hideUi() {
     this->hide();
 }
 
-void SpyTarget::on_nextButton_clicked() {
+void SpyTarget::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(SPY_RESULT);
     this->accessGH().changeUiView(SPY_RESULT);
 }

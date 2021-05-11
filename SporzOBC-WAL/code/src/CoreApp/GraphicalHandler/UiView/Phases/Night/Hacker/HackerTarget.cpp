@@ -40,7 +40,7 @@ void HackerTarget::hideUi() {
     this->hide();
 }
 
-void HackerTarget::on_nextButton_clicked() {
+void HackerTarget::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(HACKER_RESULT);
     this->accessGH().changeUiView(HACKER_RESULT);
 }

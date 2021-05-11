@@ -40,7 +40,7 @@ void PainterTarget::hideUi() {
     this->hide();
 }
 
-void PainterTarget::on_nextButton_clicked() {
+void PainterTarget::on_nextNightButton_clicked() {
     this->accessGH().loadUiGameView(PAINTER_RESULT);
     this->accessGH().changeUiView(PAINTER_RESULT);
 }
