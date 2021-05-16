@@ -17,6 +17,9 @@ MutantsTurn::MutantsTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::MutantsTurn), RegisteredInFactory<MutantsTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void MutantsTurn::showUi() {
@@ -35,13 +38,6 @@ void MutantsTurn::showUi() {
     } else
         labelText += "Le mutant de base nommé " + aliveMutants[0]->getUserName() + " se réveille.";
     this->ui->aliveMutants->setText(labelText.c_str());
-    QPixmap mypix (":/img/arts/mutant/icon");
-    ui->turnImg->setPixmap(mypix.scaled(ui->turnImg->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-//    this->ui->awakeQuote->setStyleSheet("Q");
-//    QPixmap topBox (":/img/ui/night/borderbox_reversed");
-//    ui->topBox->setPixmap(topBox.scaled(ui->turnImg->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
-//    QPixmap bottomBox (":/img/ui/night/borderbox");
-//    ui->bottomBox->setPixmap(bottomBox.scaled(ui->turnImg->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     this->show();
 }
 

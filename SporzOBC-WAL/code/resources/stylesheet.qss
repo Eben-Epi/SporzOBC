@@ -5,21 +5,49 @@
     background-color: #191918;
 }
 
-#awakeQuoteNight {
-    color: #191918;
-    font: 20pt 'Imbue';
-    font-weight: lighter;
-    padding: 15px 40px;
-    background-color: #e9e9e0;
+#mutantTurnImg {
+    border-image: url(":/img/arts/mutant/icon");
 }
 
 #nextNightButton {
     border-image: url(":/img/ui/night/arrow");
 }
 
+#nextNightButton:disabled {
+    border-image: url(":/img/ui/night/faded_arrow");
+}
+
+#killChoice {
+    border-image: url(":/img/ui/choice_unchecked");
+    font: 18pt 'Bebas Neue';
+}
+
+#killChoice:checked {
+    border-image: url(":/img/ui/choice_checked");
+    font: 18pt 'Bebas Neue';
+}
+
+#mutateChoice {
+    border-image: url(":/img/ui/choice_unchecked");
+    font: 18pt 'Bebas Neue';
+}
+
+#mutateChoice:checked {
+    border-image: url(":/img/ui/choice_checked");
+    font: 18pt 'Bebas Neue';
+}
+
+QuoteText {
+    color: #191918;
+    font: 19pt 'Imbue';
+    font-weight: lighter;
+    padding: 15px 40px;
+    background-color: #e9e9e0;
+}
+
 HelperText {
     color: #e9e9e0;
-    font: 18pt 'Bebas Neue';
+    font: 17pt 'Bebas Neue';
 }
 
 ArrowQuote {

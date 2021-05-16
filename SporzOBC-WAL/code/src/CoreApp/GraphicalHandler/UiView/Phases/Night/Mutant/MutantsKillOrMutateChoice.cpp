@@ -17,11 +17,15 @@ MutantsKillOrMutateChoice::MutantsKillOrMutateChoice(QWidget *parent)
         : QWidget(parent), ui(new Ui::MutantsKillOrMutateChoice), RegisteredInFactory<MutantsKillOrMutateChoice>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void MutantsKillOrMutateChoice::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
-    this->ui->nextButton->setDisabled(true);
+    this->ui->nextNightButton->setDisabled(true);
+    this->ui->mutantTurnImg->move(this->window()->width() / 2 - this->width() / 2, this->y());
     this->show();
 }
 
@@ -53,5 +57,5 @@ void MutantsKillOrMutateChoice::on_choice_buttonToggled(QAbstractButton *button,
         } else if (button == this->ui->mutateChoice) {
             this->accessGLM().setMutantChoice(MUTATION);
     }
-    this->ui->nextButton->setEnabled(true);
+    this->ui->nextNightButton->setEnabled(true);
 }
