@@ -443,6 +443,9 @@
            <height>80</height>
           </size>
          </property>
+         <property name="sizeAdjustPolicy">
+          <enum>QComboBox::AdjustToMinimumContentsLength</enum>
+         </property>
         </widget>
        </item>
        <item>

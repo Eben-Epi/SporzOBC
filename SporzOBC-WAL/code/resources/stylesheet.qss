@@ -73,7 +73,10 @@ QPushButton#playButton {
 }
 
 QComboBox  {
-    border: 2px solid black;
-    background-color: white;
-    font-size: 28px;
+    background-color: #e9e9e0;
+    color: #191918;
+    font: 18pt 'Bebas Neue';
+    font-weight: lighter;
+    padding: 15px 40px;
+    selection-background-color: #e9e9e0;
 }
