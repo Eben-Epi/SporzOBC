@@ -786,7 +786,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="mutateChoice">
+          <widget class="QPushButton" name="killChoice">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -827,7 +827,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="killChoice">
+          <widget class="QPushButton" name="mutateChoice">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>

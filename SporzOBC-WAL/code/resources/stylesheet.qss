@@ -50,18 +50,13 @@ NoviceHackerTurnImg {
     border-image: url(":/img/ui/night/faded_arrow");
 }
 
-#killChoice {
+#killChoice, #mutateChoice, #healChoice {
     border-image: url(":/img/ui/choice_unchecked");
     font: 18pt 'Bebas Neue';
 }
 
-#killChoice:checked {
+#killChoice:checked, #mutateChoice:checked, #healChoice:checked  {
     border-image: url(":/img/ui/choice_checked");
-    font: 18pt 'Bebas Neue';
-}
-
-#mutateChoice {
-    border-image: url(":/img/ui/choice_unchecked");
     font: 18pt 'Bebas Neue';
 }
 
