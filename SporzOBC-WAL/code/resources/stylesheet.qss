@@ -9,6 +9,39 @@ MutantTurnImg {
     border-image: url(":/img/arts/mutant/icon");
 }
 
+DoctorTurnImg {
+    border-image: url(":/img/arts/doctor/icon");
+}
+
+ComputerScientistTurnImg {
+    border-image: url(":/img/arts/computer_scientist/icon");
+}
+
+GeneticistTurnImg {
+    border-image: url(":/img/arts/geneticist/icon");
+}
+
+SpyTurnImg {
+    border-image: url(":/img/arts/spy/icon");
+}
+
+PsychologistTurnImg {
+    border-image: url(":/img/arts/psychologist/icon");
+}
+
+PainterTurnImg {
+    border-image: url(":/img/arts/painter/icon");
+}
+
+HackerTurnImg {
+    border-image: url(":/img/arts/hacker/icon");
+}
+
+NoviceHackerTurnImg {
+    border-image: url(":/img/arts/novice_hacker/icon");
+}
+
+
 #nextNightButton {
     border-image: url(":/img/ui/night/arrow");
 }

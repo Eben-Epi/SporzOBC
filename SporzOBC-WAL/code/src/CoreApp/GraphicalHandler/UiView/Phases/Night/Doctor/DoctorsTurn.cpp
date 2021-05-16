@@ -24,6 +24,20 @@ DoctorsTurn::DoctorsTurn(QWidget *parent)
 
 void DoctorsTurn::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
+    auto aliveDoctors = this->accessGLM().getAlivePlayersAssociatedWithRole(DOCTOR);
+    std::string labelText;
+    if (aliveDoctors.size() > 1 && this->accessGLM().isTurnPassed(MUTANT)) {
+        labelText += "Les docteurs en vie sont : ";
+        for (auto player = aliveDoctors.begin(); player != aliveDoctors.end(); ++player) {
+            if (player != aliveDoctors.begin())
+                labelText += (std::next(player) == aliveDoctors.end() ? " et " : ", ") + player.operator*()->getUserName();
+            else
+                labelText += player.operator*()->getUserName();
+        }
+        labelText += ".";
+    } else
+        labelText += "Le mutant de base nommé " + aliveDoctors[0]->getUserName() + " se réveille.";
+    this->ui->aliveDoctors->setText(labelText.c_str());
     this->show();
 }
 
