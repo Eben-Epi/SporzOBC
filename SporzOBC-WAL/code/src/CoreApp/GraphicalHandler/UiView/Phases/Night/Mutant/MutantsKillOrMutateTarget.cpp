@@ -17,6 +17,9 @@ MutantsKillOrMutateTarget::MutantsKillOrMutateTarget(QWidget *parent)
         : QWidget(parent), ui(new Ui::MutantsKillOrMutateTarget), RegisteredInFactory<MutantsKillOrMutateTarget>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void MutantsKillOrMutateTarget::showUi() {

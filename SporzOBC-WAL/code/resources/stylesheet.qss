@@ -5,7 +5,7 @@
     background-color: #191918;
 }
 
-#mutantTurnImg {
+MutantTurnImg {
     border-image: url(":/img/arts/mutant/icon");
 }
 
