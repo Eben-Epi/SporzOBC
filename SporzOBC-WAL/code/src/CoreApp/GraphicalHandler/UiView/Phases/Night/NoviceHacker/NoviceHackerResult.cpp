@@ -17,6 +17,9 @@ NoviceHackerResult::NoviceHackerResult(QWidget *parent)
         : QWidget(parent), ui(new Ui::NoviceHackerResult), RegisteredInFactory<NoviceHackerResult>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void NoviceHackerResult::showUi() {

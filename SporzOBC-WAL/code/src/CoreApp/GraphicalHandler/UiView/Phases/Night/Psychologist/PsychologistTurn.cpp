@@ -17,6 +17,9 @@ PsychologistTurn::PsychologistTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::PsychologistTurn), RegisteredInFactory<PsychologistTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void PsychologistTurn::showUi() {

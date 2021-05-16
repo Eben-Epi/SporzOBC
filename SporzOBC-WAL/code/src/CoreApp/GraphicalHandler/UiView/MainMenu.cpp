@@ -17,6 +17,9 @@ MainMenu::MainMenu(QWidget *parent)
         : QWidget(parent), ui(new Ui::MainMenu), RegisteredInFactory<MainMenu>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void MainMenu::showUi() {

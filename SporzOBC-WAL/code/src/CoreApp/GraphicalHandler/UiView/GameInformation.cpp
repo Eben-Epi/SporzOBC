@@ -19,6 +19,9 @@ GameInformation::GameInformation(QWidget *parent)
         : QWidget(parent), ui(new Ui::GameInformation), RegisteredInFactory<GameInformation>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void GameInformation::showUi() {

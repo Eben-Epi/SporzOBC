@@ -17,6 +17,9 @@ PainterTurn::PainterTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::PainterTurn), RegisteredInFactory<PainterTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void PainterTurn::showUi() {

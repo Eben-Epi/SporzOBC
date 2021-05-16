@@ -17,6 +17,9 @@ EveningBedTime::EveningBedTime(QWidget *parent)
         : QWidget(parent), ui(new Ui::EveningBedTime), RegisteredInFactory<EveningBedTime>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void EveningBedTime::showUi() {

@@ -17,6 +17,9 @@ Discuss::Discuss(QWidget *parent)
         : QWidget(parent), ui(new Ui::Discuss), RegisteredInFactory<Discuss>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void Discuss::showUi() {

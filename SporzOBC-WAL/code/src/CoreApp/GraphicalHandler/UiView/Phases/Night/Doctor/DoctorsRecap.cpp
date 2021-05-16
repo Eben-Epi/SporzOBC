@@ -17,6 +17,9 @@ DoctorsRecap::DoctorsRecap(QWidget *parent)
         : QWidget(parent), ui(new Ui::DoctorsRecap), RegisteredInFactory<DoctorsRecap>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void DoctorsRecap::showUi() {

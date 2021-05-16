@@ -17,6 +17,9 @@ PainterTarget::PainterTarget(QWidget *parent)
         : QWidget(parent), ui(new Ui::PainterTarget), RegisteredInFactory<PainterTarget>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void PainterTarget::showUi() {

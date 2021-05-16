@@ -17,6 +17,9 @@ ElectChief::ElectChief(QWidget *parent)
         : QWidget(parent), ui(new Ui::ElectChief), RegisteredInFactory<ElectChief>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void ElectChief::showUi() {

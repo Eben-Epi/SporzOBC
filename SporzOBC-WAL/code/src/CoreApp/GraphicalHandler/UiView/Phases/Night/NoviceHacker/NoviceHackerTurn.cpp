@@ -17,6 +17,9 @@ NoviceHackerTurn::NoviceHackerTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::NoviceHackerTurn), RegisteredInFactory<NoviceHackerTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void NoviceHackerTurn::showUi() {

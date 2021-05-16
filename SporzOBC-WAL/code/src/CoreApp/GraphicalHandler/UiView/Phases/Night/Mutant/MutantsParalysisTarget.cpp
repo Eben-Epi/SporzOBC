@@ -17,6 +17,9 @@ MutantsParalysisTarget::MutantsParalysisTarget(QWidget *parent)
         : QWidget(parent), ui(new Ui::MutantsParalysisTarget), RegisteredInFactory<MutantsParalysisTarget>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void MutantsParalysisTarget::showUi() {

@@ -17,6 +17,9 @@ ComputerScientistResult::ComputerScientistResult(QWidget *parent)
         : QWidget(parent), ui(new Ui::ComputerScientistResult), RegisteredInFactory<ComputerScientistResult>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void ComputerScientistResult::showUi() {

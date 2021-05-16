@@ -17,6 +17,9 @@ SpyTurn::SpyTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::SpyTurn), RegisteredInFactory<SpyTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void SpyTurn::showUi() {

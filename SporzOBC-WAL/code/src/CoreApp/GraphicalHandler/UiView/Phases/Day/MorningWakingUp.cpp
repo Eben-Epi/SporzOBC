@@ -17,6 +17,9 @@ MorningWakingUp::MorningWakingUp(QWidget *parent)
         : QWidget(parent), ui(new Ui::MorningWakingUp), RegisteredInFactory<MorningWakingUp>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void MorningWakingUp::showUi() {

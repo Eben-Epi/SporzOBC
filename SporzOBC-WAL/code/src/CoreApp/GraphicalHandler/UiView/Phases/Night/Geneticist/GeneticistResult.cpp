@@ -17,6 +17,9 @@ GeneticistResult::GeneticistResult(QWidget *parent)
         : QWidget(parent), ui(new Ui::GeneticistResult), RegisteredInFactory<GeneticistResult>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void GeneticistResult::showUi() {

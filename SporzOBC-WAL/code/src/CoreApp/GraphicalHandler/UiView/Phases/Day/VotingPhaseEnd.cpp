@@ -17,6 +17,9 @@ VotingPhaseEnd::VotingPhaseEnd(QWidget *parent)
         : QWidget(parent), ui(new Ui::VotingPhaseEnd), RegisteredInFactory<VotingPhaseEnd>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void VotingPhaseEnd::showUi() {

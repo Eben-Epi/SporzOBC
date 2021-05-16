@@ -17,6 +17,9 @@ HackerTurn::HackerTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::HackerTurn), RegisteredInFactory<HackerTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void HackerTurn::showUi() {

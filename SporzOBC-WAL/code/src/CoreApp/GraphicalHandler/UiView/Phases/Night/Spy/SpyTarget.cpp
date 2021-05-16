@@ -17,6 +17,9 @@ SpyTarget::SpyTarget(QWidget *parent)
         : QWidget(parent), ui(new Ui::SpyTarget), RegisteredInFactory<SpyTarget>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void SpyTarget::showUi() {

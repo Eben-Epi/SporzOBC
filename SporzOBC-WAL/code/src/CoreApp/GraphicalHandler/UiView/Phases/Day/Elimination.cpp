@@ -17,6 +17,9 @@ Elimination::Elimination(QWidget *parent)
         : QWidget(parent), ui(new Ui::Elimination), RegisteredInFactory<Elimination>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void Elimination::showUi() {

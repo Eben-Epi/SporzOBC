@@ -17,6 +17,9 @@ DoctorsKillOrHealTarget::DoctorsKillOrHealTarget(QWidget *parent)
         : QWidget(parent), ui(new Ui::DoctorsKillOrHealTarget), RegisteredInFactory<DoctorsKillOrHealTarget>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void DoctorsKillOrHealTarget::showUi() {

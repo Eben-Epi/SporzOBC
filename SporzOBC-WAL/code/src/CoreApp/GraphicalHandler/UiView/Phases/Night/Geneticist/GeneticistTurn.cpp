@@ -17,6 +17,9 @@ GeneticistTurn::GeneticistTurn(QWidget *parent)
         : QWidget(parent), ui(new Ui::GeneticistTurn), RegisteredInFactory<GeneticistTurn>()
 {
     ui->setupUi(this);
+#ifndef Q_OS_ANDROID
+    this->showMaximized();
+#endif
 }
 
 void GeneticistTurn::showUi() {
