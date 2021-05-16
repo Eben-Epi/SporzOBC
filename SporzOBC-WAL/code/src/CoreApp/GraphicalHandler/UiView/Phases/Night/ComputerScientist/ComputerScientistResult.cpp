@@ -24,6 +24,10 @@ ComputerScientistResult::ComputerScientistResult(QWidget *parent)
 
 void ComputerScientistResult::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
+    auto aliveMutantsNumber = this->accessGLM().getAlivePlayersAssociatedWithRole(MUTANT);
+    std::string labelText;
+    labelText += "Il y a " + std::to_string(aliveMutantsNumber.size()) + " mutant" + (aliveMutantsNumber.size() > 1 ? "s " : " ") + "à bord.";
+    this->ui->aliveMutantsNumber->setText(labelText.c_str());
     this->show();
 }
 
