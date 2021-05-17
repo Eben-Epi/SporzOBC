@@ -59,6 +59,7 @@ void MutantsRecap::hideUi() {
 
 void MutantsRecap::on_nextNightButton_clicked() {
     if (this->accessGLM().checkForMutantsWin()) {
+        this->ui->nextNightButton->setDisabled(true);
         QMessageBox::information(this, "Fin de la partie", "Annoncez de votre plus belle manière la défaite de l'humanité.");
         this->accessGLM().resetGame();
         this->accessGH().clearUiGameViews();
