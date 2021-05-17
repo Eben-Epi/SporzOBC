@@ -28,6 +28,7 @@ public:
 
     bool isAlive();
     bool isIll();
+    bool isParalyzed();
     bool kill();
     bool paralyze();
     bool heal();

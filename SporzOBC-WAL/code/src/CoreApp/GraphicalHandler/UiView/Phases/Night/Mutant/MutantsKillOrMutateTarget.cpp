@@ -45,6 +45,7 @@ void MutantsKillOrMutateTarget::hideUi() {
 }
 
 void MutantsKillOrMutateTarget::on_nextNightButton_clicked() {
+    this->accessGLM().logMutantChoiceTarget();
     this->accessGH().loadUiGameView(MUTANT_PARALYSIS_TARGET);
     this->accessGH().changeUiView(MUTANT_PARALYSIS_TARGET);
 }

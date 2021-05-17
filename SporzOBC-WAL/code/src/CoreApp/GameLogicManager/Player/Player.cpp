@@ -51,6 +51,10 @@ bool Player::isIll() {
     return this->_state == ILL;
 }
 
+bool Player::isParalyzed() {
+    return this->_state == STUNNED;
+}
+
 bool Player::kill() {
     this->_state = DEAD;
     return true;

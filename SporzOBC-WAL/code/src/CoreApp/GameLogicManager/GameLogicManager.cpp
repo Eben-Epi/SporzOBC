@@ -11,6 +11,8 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include <ctime>
+#include <locale>
 #include "CoreApp/GameLogicManager/GameLogicManager.hpp"
 
 GameLogicManager::GameLogicManager() : playerCount(MIN_PLAYER_SIZE) {
@@ -27,8 +29,40 @@ const size_t &GameLogicManager::getPlayerCount() const {
     return this->playerCount;
 }
 
-void GameLogicManager::createGame() {
-    //TODO initialize gameHistoryManager
+std::string printableRole(Role role) {
+    switch (role) {
+        case (MUTANT):
+            return "Mutant.e de base";
+        case (DOCTOR):
+            return "Docteur.e";
+        case (COMPUTER_SCIENTIST):
+            return "Informaticien.ne";
+        case (GENETICIST):
+            return "Généticien.ne";
+        case (PSYCHOLOGIST):
+            return "Psychologue";
+        case (HACKER):
+            return "Hackeur.se";
+        case (NOVICE_HACKER):
+            return "Hackeur.se novice";
+        case (SPY):
+            return "Espion.ne";
+        case (PAINTER):
+            return "Peintre";
+        default:
+            throw SporzException("A player was not assigned a correct role", "printableRole");
+    }
+}
+
+std::string printableGenome(Genome genome) {
+    switch (genome) {
+        case(STANDARD):
+            return "Standard";
+        case(IMMUNE):
+            return "Résistant";
+        case (HOST):
+            return "Hôte";
+    }
 }
 
 void GameLogicManager::resizePlayerVector(size_t size) {
@@ -171,7 +205,7 @@ std::vector<const Player*> GameLogicManager::getAlivePlayersAssociatedWithRole(R
         if (!player.isAlive())
             continue;
         Role pRole = player.getRole();
-        if ((roleCalled == MUTANT && (pRole == MUTANT || player.isIll())) || (pRole == roleCalled && !player.isIll()))
+        if ((roleCalled == MUTANT && (pRole == MUTANT || player.isIll())) || (pRole == roleCalled && !player.isIll() && !player.isParalyzed()))
             targetedPlayers.emplace_back(&player);
     }
     return targetedPlayers;
@@ -273,6 +307,75 @@ void GameLogicManager::setMutantsParalysisTarget(size_t ID) {
     this->mutantParalysisTarget = ID;
 }
 
-size_t GameLogicManager::getMutantsChoiceTarget() {
+size_t GameLogicManager::getMutantsChoiceTarget() const {
     return this->mutantChoiceTarget;
+}
+
+size_t GameLogicManager::getMutantsParalysisTarget() const {
+    return this->mutantParalysisTarget;
+}
+
+ActionType GameLogicManager::getMutantsChoice() const {
+    return this->mutantChoice;
+}
+
+void GameLogicManager::logCreateGame() {
+    std::time_t t = std::time(nullptr);
+    char mbstr[100];
+    if (std::strftime(mbstr, sizeof(mbstr), "%A %c", std::localtime(&t))) {
+        this->_ghm.out() << "\n**********\n Nouvelle Partie - ";
+        this->_ghm.out() << mbstr << '\n';
+        this->_ghm.out() << "**********\n";
+    } else {
+        this->_ghm.out() << "\n**********\n Nouvelle Partie \n**********\n";
+    }
+
+    this->_ghm.out() << "Il y a " << this->getPlayerCount() << " joueurs dans la partie :\n";
+    for (auto player : this->_players) {
+        this->_ghm.out() << "- " << player.getUserName().c_str() << " est " << printableRole(player.getRole()).c_str() << " de génome " <<  printableGenome(player.getGenome()).c_str() <<".\n";
+    }
+    this->logChiefElection();
+    this->_ghm.out() << "\n****\n Début de partie \n****\n\n";
+}
+
+void GameLogicManager::logChiefElection() {
+    this->_ghm.out() << "Le.La chef.fe élu.e est " << this->getPlayerName(this->chiefID).c_str() << ".\n";
+}
+
+void GameLogicManager::logMutantAwakening() {
+    auto aliveMutants = this->getAlivePlayersAssociatedWithRole(MUTANT);
+    this->_ghm.out() << "**\nTour des Mutants\n**\n\n";
+    this->_ghm.out() << "Réveil des mutant.e.s en vie (";
+    for (auto it = aliveMutants.begin(); it != aliveMutants.end() ; it++)
+        this->_ghm.out() << it.operator*()->getUserName().c_str() << (std::next(it) == aliveMutants.end() ? ").\n" : ", ");
+}
+
+void GameLogicManager::logMutantChoice() {
+    this->_ghm.out() << "La décision prise est de " << (this->mutantChoice == KILLING ? "tuer " : "muter ");
+}
+
+void GameLogicManager::logMutantChoiceTarget() {
+    this->_ghm.out() << this->getPlayerName(this->mutantChoiceTarget).c_str() << ".\n";
+}
+
+void GameLogicManager::logMutantParalysisTarget() {
+    this->_ghm.out() << "La cible de la paralysie sera " << this->getPlayerName(this->mutantParalysisTarget).c_str() << ".\n";
+}
+
+std::map<size_t, bool> GameLogicManager::computeAndLogMutantResult() {
+    std::map<size_t, bool> results;
+    results[this->mutantChoiceTarget] = this->mutate();
+    results[this->mutantParalysisTarget] = this->paralyze();
+    if (results[this->mutantChoiceTarget]) {
+        this->_ghm.out()    << "La cible "
+                            << (this->mutantChoice == KILLING ? "du meurtre (" : "de la mutation (")
+                            << this->getPlayerName(this->mutantChoiceTarget).c_str() << ") est "
+                            << (this->mutantChoice == KILLING ? "décédée.\n" : "mutée.\n");
+    } else {
+        this->_ghm.out()    << "La cible de la mutation ("
+                            << this->getPlayerName(this->mutantParalysisTarget).c_str()
+                            << ") a résisté.\n";
+    }
+    this->_ghm.out() << "La cible de la paralysie (" << this->getPlayerName(this->mutantChoiceTarget).c_str() << ") est paralysée.\n";
+    return results;
 }

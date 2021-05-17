@@ -23,7 +23,20 @@ MutantsRecap::MutantsRecap(QWidget *parent)
 }
 
 void MutantsRecap::showUi() {
+    auto &glm = this->accessGLM();
+    auto results = glm.computeAndLogMutantResult();
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
+    std::string labelText = "Tapez ";
+    if (results[glm.getMutantsChoiceTarget()]) {
+        if (glm.getMutantsChoice() == KILLING)
+            labelText += "1 fois sur la tête de " + glm.getPlayerName(glm.getMutantsChoiceTarget()) + " et ";
+        else
+            labelText += "2 fois sur la tête de " + glm.getPlayerName(glm.getMutantsChoiceTarget()) + " et ";
+    } else {
+        labelText += "2 fois sur la tête et 1 fois sur l'épaule de " + glm.getPlayerName(glm.getMutantsChoiceTarget()) + " et ";
+    }
+    labelText += "3 fois sur celle de " + glm.getPlayerName(glm.getMutantsParalysisTarget());
+    this->ui->mutantResult->setText(labelText.c_str());
     this->show();
 }
 

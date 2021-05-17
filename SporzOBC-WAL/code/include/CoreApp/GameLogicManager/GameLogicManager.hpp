@@ -15,6 +15,7 @@
 #include <map>
 #include "SporzException/SporzException.hpp"
 #include "Player.hpp"
+#include "GameHistoryManager.hpp"
 
 #define MIN_PLAYER_SIZE (6)
 #define MAX_PLAYER_SIZE (10)
@@ -54,20 +55,13 @@ public:
     class GameLogicManager {
     public:
         GameLogicManager();
-        //! Création de la partie
-        /*!
-         * Instancie le GameLogicManager, généralement après qui l'UI a lancé le signal de création de partie.
-         * La partie se crée, le nombre de joueurs présent sont ajustés grâce à la fonction setPlayerCount() et la partie
-         * se lancera grâce à la fonction startGame()
-         * \sa startGame()
-         * \sa setPlayerCount()
-         */
-        void createGame();
+        //! Début de la partie dans le log
+        void logCreateGame();
 
         //! Lancement de la partie
         /*!
          * Lance la partie, si elle a été configurée au préalable par la fonction startGame() ou plus tard //TODO loadGame
-         * \sa createGame()
+         * \sa logCreateGame()
          */
         void startGame();
 
@@ -158,15 +152,25 @@ public:
         void setMutantsParalysisTarget(size_t);
         void setDoctorsChoiceTargets(size_t initiator, size_t target);
 
-        size_t getMutantsChoiceTarget();
+        size_t getMutantsChoiceTarget() const;
+        size_t getMutantsParalysisTarget() const;
+        ActionType getMutantsChoice() const;
 
         bool killBy(Role);
         std::map<size_t, bool> heals();
         bool mutate();
         bool paralyze();
+
+        void logChiefElection();
+        void logMutantAwakening();
+        void logMutantChoice();
+        void logMutantChoiceTarget();
+        void logMutantParalysisTarget();
+        std::map<size_t, bool> computeAndLogMutantResult();
     private:
         void resizePlayerVector(size_t size);
         Player& getPlayerInstance(size_t id, const std::string& funcName);
+        GameHistoryManager _ghm;
 
         std::vector<Player> _players;
         size_t playerCount;

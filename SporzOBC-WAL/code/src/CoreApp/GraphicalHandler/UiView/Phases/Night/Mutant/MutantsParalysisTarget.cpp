@@ -46,6 +46,7 @@ void MutantsParalysisTarget::hideUi() {
 
 void MutantsParalysisTarget::on_nextNightButton_clicked() {
     this->accessGLM().setTurnPassed(MUTANT);
+    this->accessGLM().logMutantParalysisTarget();
     this->accessGH().loadUiGameView(MUTANTS_RECAP);
     this->accessGH().changeUiView(MUTANTS_RECAP);
 }
