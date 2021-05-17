@@ -30,9 +30,10 @@ MutantsTurn::MutantsTurn(QWidget *parent)
 
 void MutantsTurn::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
+    this->ui->aliveMutants->setText("");
     auto aliveMutants = this->accessGLM().getAlivePlayersAssociatedWithRole(MUTANT);
     std::string labelText;
-    if (aliveMutants.size() > 1 && this->accessGLM().isTurnPassed(MUTANT)) {
+    if (aliveMutants.size() > 1) {
         labelText += "Les mutants en vie sont : ";
         for (auto player = aliveMutants.begin(); player != aliveMutants.end(); ++player) {
             if (player != aliveMutants.begin())

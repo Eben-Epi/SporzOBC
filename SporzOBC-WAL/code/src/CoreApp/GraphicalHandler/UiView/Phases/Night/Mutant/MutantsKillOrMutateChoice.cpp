@@ -25,7 +25,8 @@ MutantsKillOrMutateChoice::MutantsKillOrMutateChoice(QWidget *parent)
 void MutantsKillOrMutateChoice::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
     this->ui->nextNightButton->setDisabled(true);
-    this->ui->mutantTurnImg->move(this->window()->width() / 2 - this->width() / 2, this->y());
+    this->ui->killChoice->setChecked(false);
+    this->ui->mutateChoice->setChecked(false);
     this->show();
 }
 

@@ -24,6 +24,7 @@ MutantsParalysisTarget::MutantsParalysisTarget(QWidget *parent)
 
 void MutantsParalysisTarget::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
+    this->ui->selectTarget->clear();
     this->fillComboBox();
     this->show();
 }
@@ -67,5 +68,6 @@ void MutantsParalysisTarget::fillComboBox() {
 
 void MutantsParalysisTarget::on_selectTarget_currentTextChanged(const QString &text) {
     std::string username = text.toUtf8().constData();
-    this->accessGLM().setMutantsParalysisTarget((this->accessGLM().getAlivePlayerIDByName(username)));
+    if (!username.empty())
+        this->accessGLM().setMutantsParalysisTarget((this->accessGLM().getAlivePlayerIDByName(username)));
 }

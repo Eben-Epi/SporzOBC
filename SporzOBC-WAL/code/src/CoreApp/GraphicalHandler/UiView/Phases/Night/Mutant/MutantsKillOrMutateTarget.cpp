@@ -24,6 +24,7 @@ MutantsKillOrMutateTarget::MutantsKillOrMutateTarget(QWidget *parent)
 
 void MutantsKillOrMutateTarget::showUi() {
     this->setStyleSheet(static_cast<GraphicalHandler*>(&this->accessGH())->getGlobalStyleSheet());
+    this->ui->selectTarget->clear();
     this->fillComboBox();
     this->show();
 }
@@ -62,5 +63,6 @@ void MutantsKillOrMutateTarget::fillComboBox() {
 
 void MutantsKillOrMutateTarget::on_selectTarget_currentTextChanged(const QString &text) {
     std::string username = text.toUtf8().constData();
-    this->accessGLM().setMutantsChoiceTarget(this->accessGLM().getAlivePlayerIDByName(username));
+    if (!username.empty())
+        this->accessGLM().setMutantsChoiceTarget(this->accessGLM().getAlivePlayerIDByName(username));
 }

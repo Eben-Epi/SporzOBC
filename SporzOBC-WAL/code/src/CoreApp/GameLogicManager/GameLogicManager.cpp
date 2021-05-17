@@ -198,6 +198,16 @@ bool GameLogicManager::isTurnPassed(Role role) {
     return this->_turns[role];
 }
 
+
+std::vector<const Player *> GameLogicManager::getAlivePlayers() {
+    std::vector<const Player*> targetedPlayers;
+    for (Player& player: this->_players) {
+        if (player.isAlive())
+            targetedPlayers.emplace_back(&player);
+    }
+    return targetedPlayers;
+}
+
 std::vector<const Player*> GameLogicManager::getAlivePlayersAssociatedWithRole(Role roleCalled) {
     std::vector<const Player*> targetedPlayers;
 
@@ -245,7 +255,7 @@ const Player &GameLogicManager::getAlivePlayerById(size_t ID) {
             }
         }
     }
-    throw GameLogicManagerException("id of player is invalid or player is dead", "assignChief", PLAYER_ID_INVALID);
+    throw GameLogicManagerException("id of player is invalid or player is dead", "getAlivePlayerById", PLAYER_ID_INVALID);
 }
 
 size_t GameLogicManager::getAlivePlayerIDByName(const std::string &nameToFind) {
@@ -254,7 +264,7 @@ size_t GameLogicManager::getAlivePlayerIDByName(const std::string &nameToFind) {
             return player.getID();
         }
     }
-    throw GameLogicManagerException("cannot find alive player with name " + nameToFind, "assignChief", PLAYER_NAME_INVALID);
+    throw GameLogicManagerException("cannot find alive player with name " + nameToFind, "getAlivePlayerIDByName", PLAYER_NAME_INVALID);
 }
 
 void GameLogicManager::setMutantChoice(ActionType actionType) {
@@ -282,7 +292,7 @@ bool GameLogicManager::mutate() {
 }
 
 bool GameLogicManager::paralyze() {
-    bool result = this->getPlayerInstance(this->mutantChoiceTarget, "paralyze").paralyze();
+    bool result = this->getPlayerInstance(this->mutantParalysisTarget, "paralyze").paralyze();
     return result;
 }
 
@@ -344,7 +354,7 @@ void GameLogicManager::logChiefElection() {
 
 void GameLogicManager::logMutantAwakening() {
     auto aliveMutants = this->getAlivePlayersAssociatedWithRole(MUTANT);
-    this->_ghm.out() << "**\nTour des Mutants\n**\n\n";
+    this->_ghm.out() << "**\n Tour des Mutant.e.s\n**\n\n";
     this->_ghm.out() << "Réveil des mutant.e.s en vie (";
     for (auto it = aliveMutants.begin(); it != aliveMutants.end() ; it++)
         this->_ghm.out() << it.operator*()->getUserName().c_str() << (std::next(it) == aliveMutants.end() ? ").\n" : ", ");
@@ -364,7 +374,7 @@ void GameLogicManager::logMutantParalysisTarget() {
 
 std::map<size_t, bool> GameLogicManager::computeAndLogMutantResult() {
     std::map<size_t, bool> results;
-    results[this->mutantChoiceTarget] = this->mutate();
+    results[this->mutantChoiceTarget] = this->mutantChoice == KILLING ? this->killBy(MUTANT) : this->mutate();
     results[this->mutantParalysisTarget] = this->paralyze();
     if (results[this->mutantChoiceTarget]) {
         this->_ghm.out()    << "La cible "
@@ -373,9 +383,10 @@ std::map<size_t, bool> GameLogicManager::computeAndLogMutantResult() {
                             << (this->mutantChoice == KILLING ? "décédée.\n" : "mutée.\n");
     } else {
         this->_ghm.out()    << "La cible de la mutation ("
-                            << this->getPlayerName(this->mutantParalysisTarget).c_str()
+                            << this->getPlayerName(this->mutantChoiceTarget).c_str()
                             << ") a résisté.\n";
     }
-    this->_ghm.out() << "La cible de la paralysie (" << this->getPlayerName(this->mutantChoiceTarget).c_str() << ") est paralysée.\n";
+    this->_ghm.out() << "La cible de la paralysie (" << this->getPlayerName(this->mutantParalysisTarget).c_str() << ") est paralysée.\n";
+    this->_ghm.out() << "**\n Fin du tour des Mutant.e.s\n**\n\n";
     return results;
 }

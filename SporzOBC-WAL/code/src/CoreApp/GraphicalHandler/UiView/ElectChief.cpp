@@ -52,15 +52,15 @@ void ElectChief::on_nextButton_clicked() {
 
 void ElectChief::fillComboBox() {
     auto &glm = this->accessGLM();
-    int playerCount = glm.getPlayerCount();
+    auto players = glm.getAlivePlayers();
     QStringList names;
 
-    for (int ID = 1; ID <= playerCount; ID++)
-        names.push_back(QString::fromUtf8(glm.getPlayerName(ID).c_str()));
-    glm.assignChief(1);
+    for (auto player : players)
+        names.push_back(QString::fromUtf8(player->getUserName().c_str()));
+    glm.assignChief(players[0]->getID());
     this->ui->selectChief->addItems(names);
 }
 
 void ElectChief::on_selectChief_currentIndexChanged(int index) {
-    this->accessGLM().assignChief(index + 1);
+    this->accessGLM().assignChief(this->accessGLM().getAlivePlayerIDByName(std::string(this->ui->selectChief->itemText(index).toUtf8().data())));
 }

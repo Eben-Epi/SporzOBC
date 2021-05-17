@@ -132,6 +132,7 @@ public:
         //! Affectation aléatoire des génomes
         void randomizeGenomes();
 
+        std::vector<const Player*> getAlivePlayers();
         std::vector<const Player*> getAlivePlayersAssociatedWithRole(Role role);
         std::vector<const Player*> getAlivePlayersTargetedByRole(Role role);
 
