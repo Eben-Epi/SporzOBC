@@ -8,6 +8,10 @@
 */
 
 #include <iostream>
+#include <QtGlobal>
+#ifdef Q_OS_ANDROID
+#include <QAndroidJniObject>
+#endif
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
 #include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
 #include "./Phases/Night/Mutant/ui_turn.h"
@@ -58,6 +62,9 @@ void MutantsTurn::hideUi() {
 }
 
 void MutantsTurn::on_nextNightButton_clicked() {
+#ifdef Q_OS_ANDROID
+    QAndroidJniObject::callStaticMethod<void>("org/sporz/example/Vibration/VibrationClient", "start", "(I)V", 300);
+#endif
     if (!this->accessGLM().isTurnPassed(MUTANT)) {
         this->accessGLM().setTurnPassed(MUTANT);
 //        this->ui->aliveMutants->setText("azoiajzoiajzoijazoijazio zaoijazi oza ijzji  jiozji ozji ozji o jioazj ioazj ioza jio jiozaj ioazij oa joaij IIIIIIIII X");
