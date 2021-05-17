@@ -59,6 +59,7 @@ class IGraphicalHandler;
          *  */
         virtual void loadUiView(UiViews page) = 0;
         virtual void loadUiGameView(UiViews page) = 0;
+        virtual void clearUiGameViews() = 0;
     };
 
 #endif //SPORZOBC_WAL_IGRAPHICALHANDLER_HPP

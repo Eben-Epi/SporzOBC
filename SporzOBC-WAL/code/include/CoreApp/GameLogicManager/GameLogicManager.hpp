@@ -168,6 +168,11 @@ public:
         void logMutantChoiceTarget();
         void logMutantParalysisTarget();
         std::map<size_t, bool> computeAndLogMutantResult();
+
+        bool checkForMutantsWin();
+        bool checkForHumansWin();
+
+        void resetGame();
     private:
         void resizePlayerVector(size_t size);
         Player& getPlayerInstance(size_t id, const std::string& funcName);
@@ -175,7 +180,6 @@ public:
 
         std::vector<Player> _players;
         size_t playerCount;
-        GameState gameState = BOARDING;
         size_t chiefID = 0;
         std::vector<bool> _turns;
         ActionType mutantChoice = NO_ACTION;

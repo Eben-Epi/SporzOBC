@@ -77,3 +77,10 @@ int GraphicalHandler::appExec() {
 const QString &GraphicalHandler::getGlobalStyleSheet() {
     return (this->globalStyleSheet);
 }
+
+void GraphicalHandler::clearUiGameViews() {
+    this->loadUiGameView(MAIN_MENU);
+    this->changeUiView(MAIN_MENU);
+    for (size_t viewType = PLAYER_SELECT; viewType <= SPY_TURN; viewType++)
+        this->_loadedUiViews.erase((static_cast<UiViews>(viewType)));
+}

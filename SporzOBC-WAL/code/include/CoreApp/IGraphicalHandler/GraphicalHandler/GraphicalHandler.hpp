@@ -22,6 +22,7 @@ public:
     void changeUiView(UiViews page) override;
     void loadUiGameView(UiViews page) override;
     void loadUiView(UiViews page) override;
+    void clearUiGameViews() override;
     const QString &getGlobalStyleSheet();
     int appExec();
 private:

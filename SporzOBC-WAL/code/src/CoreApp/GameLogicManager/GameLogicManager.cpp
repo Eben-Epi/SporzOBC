@@ -390,3 +390,21 @@ std::map<size_t, bool> GameLogicManager::computeAndLogMutantResult() {
     this->_ghm.out() << "**\n Fin du tour des Mutant.e.s\n**\n\n";
     return results;
 }
+
+bool GameLogicManager::checkForMutantsWin() {
+    return this->getAlivePlayersAssociatedWithRole(DOCTOR).empty();
+}
+
+bool GameLogicManager::checkForHumansWin() {
+    return this->getAlivePlayersAssociatedWithRole(MUTANT).empty();
+}
+
+void GameLogicManager::resetGame() {
+    this->_players.clear();
+    this->playerCount = 6;
+    this->doctorTargets.clear();
+    this->mutantParalysisTarget = 0;
+    this->mutantChoiceTarget = 0;
+    this->mutantChoice = NO_ACTION;
+    this->_turns.resize(6, false);
+}

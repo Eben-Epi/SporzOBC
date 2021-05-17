@@ -11,6 +11,7 @@
 
 #include <QtCore/QFile>
 #include <QtCore/qtextstream.h>
+#include <memory>
 
 class GameHistoryManager {
 public:

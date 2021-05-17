@@ -10,6 +10,7 @@
 #include <iostream>
 #include <CoreApp/IGraphicalHandler/Widgets/GameUiModel/GameUiWidget.hpp>
 #include <CoreApp/IGraphicalHandler/GraphicalHandler/GraphicalHandler.hpp>
+#include <QMessageBox>
 #include "./Phases/Night/Mutant/ui_recap.h"
 #include "CoreApp/IGraphicalHandler/IUiView/UiView/Phases/Night/Mutant/MutantsRecap.hpp"
 
@@ -57,6 +58,12 @@ void MutantsRecap::hideUi() {
 }
 
 void MutantsRecap::on_nextNightButton_clicked() {
-    this->accessGH().loadUiGameView(DOCTORS_TURN);
-    this->accessGH().changeUiView(DOCTORS_TURN);
+    if (this->accessGLM().checkForMutantsWin()) {
+        QMessageBox::information(this, "Fin de la partie", "Annoncez de votre plus belle manière la défaite de l'humanité.");
+        this->accessGLM().resetGame();
+        this->accessGH().clearUiGameViews();
+    } else {
+        this->accessGH().loadUiGameView(DOCTORS_TURN);
+        this->accessGH().changeUiView(DOCTORS_TURN);
+    }
 }
