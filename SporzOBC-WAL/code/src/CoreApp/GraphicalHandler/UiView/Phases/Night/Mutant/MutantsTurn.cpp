@@ -67,11 +67,9 @@ void MutantsTurn::on_nextNightButton_clicked() {
 #endif
     if (!this->accessGLM().isTurnPassed(MUTANT)) {
         this->accessGLM().setTurnPassed(MUTANT);
-//        this->ui->aliveMutants->setText("azoiajzoiajzoijazoijazio zaoijazi oza ijzji  jiozji ozji ozji o jioazj ioazj ioza jio jiozaj ioazij oa joaij IIIIIIIII X");
         this->accessGH().loadUiGameView(MUTANTS_KILL_OR_MUTATE_CHOICE);
         this->accessGH().changeUiView(MUTANTS_KILL_OR_MUTATE_CHOICE);
     } else {
-//        this->ui->aliveMutants->setText("Je vais passer parmis vous, si je vous tape une fois sur la tête vous êtes mort, deux fois vous êtes soigné. Si je vous tape deux fois sur la tête et une fois sur l’épaule c’est qu’on a tenté de vous soigner mais que ça n’a pas marché car vous êtes de génome hôte. Je rappelle que le soin ne soigne pas la paralysie");
         this->accessGH().loadUiGameView(MUTANTS_RECAP);
         this->accessGH().changeUiView(MUTANTS_RECAP);
     }
